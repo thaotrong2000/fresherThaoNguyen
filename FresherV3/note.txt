@@ -1,0 +1,10 @@
+Schedule: 
+1) Tạo cơ sở dữ liệu đầy đủ, Procedure. 
+	Tạo bảng cơ sở dữ liệu 
+
+
+
+
+
+2) Tạo backend 
+3) Tạo backend VueJs, kết nối với API trong asp.net core API

@@ -1,0 +1,12 @@
+D:\MF817_NguyenTrongThao\FresherV3\Employee.Infrastructure\obj\Debug\netcoreapp3.1\Employee.Infrastructure.csprojAssemblyReference.cache
+D:\MF817_NguyenTrongThao\FresherV3\Employee.Infrastructure\obj\Debug\netcoreapp3.1\Employee.Infrastructure.AssemblyInfoInputs.cache
+D:\MF817_NguyenTrongThao\FresherV3\Employee.Infrastructure\obj\Debug\netcoreapp3.1\Employee.Infrastructure.AssemblyInfo.cs
+D:\MF817_NguyenTrongThao\FresherV3\Employee.Infrastructure\obj\Debug\netcoreapp3.1\Employee.Infrastructure.csproj.CoreCompileInputs.cache
+D:\MF817_NguyenTrongThao\FresherV3\Employee.Infrastructure\bin\Debug\netcoreapp3.1\Employee.Infrastructure.deps.json
+D:\MF817_NguyenTrongThao\FresherV3\Employee.Infrastructure\bin\Debug\netcoreapp3.1\Employee.Infrastructure.dll
+D:\MF817_NguyenTrongThao\FresherV3\Employee.Infrastructure\bin\Debug\netcoreapp3.1\Employee.Infrastructure.pdb
+D:\MF817_NguyenTrongThao\FresherV3\Employee.Infrastructure\bin\Debug\netcoreapp3.1\Employee.Core.dll
+D:\MF817_NguyenTrongThao\FresherV3\Employee.Infrastructure\bin\Debug\netcoreapp3.1\Employee.Core.pdb
+D:\MF817_NguyenTrongThao\FresherV3\Employee.Infrastructure\obj\Debug\netcoreapp3.1\Employee.Infrastructure.csproj.CopyComplete
+D:\MF817_NguyenTrongThao\FresherV3\Employee.Infrastructure\obj\Debug\netcoreapp3.1\Employee.Infrastructure.dll
+D:\MF817_NguyenTrongThao\FresherV3\Employee.Infrastructure\obj\Debug\netcoreapp3.1\Employee.Infrastructure.pdb

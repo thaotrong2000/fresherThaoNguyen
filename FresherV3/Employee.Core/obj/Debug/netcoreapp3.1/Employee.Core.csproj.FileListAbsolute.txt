@@ -1,0 +1,9 @@
+D:\MF817_NguyenTrongThao\FresherV3\Employee.Core\obj\Debug\netcoreapp3.1\Employee.Core.csprojAssemblyReference.cache
+D:\MF817_NguyenTrongThao\FresherV3\Employee.Core\obj\Debug\netcoreapp3.1\Employee.Core.AssemblyInfoInputs.cache
+D:\MF817_NguyenTrongThao\FresherV3\Employee.Core\obj\Debug\netcoreapp3.1\Employee.Core.AssemblyInfo.cs
+D:\MF817_NguyenTrongThao\FresherV3\Employee.Core\obj\Debug\netcoreapp3.1\Employee.Core.csproj.CoreCompileInputs.cache
+D:\MF817_NguyenTrongThao\FresherV3\Employee.Core\bin\Debug\netcoreapp3.1\Employee.Core.deps.json
+D:\MF817_NguyenTrongThao\FresherV3\Employee.Core\bin\Debug\netcoreapp3.1\Employee.Core.dll
+D:\MF817_NguyenTrongThao\FresherV3\Employee.Core\bin\Debug\netcoreapp3.1\Employee.Core.pdb
+D:\MF817_NguyenTrongThao\FresherV3\Employee.Core\obj\Debug\netcoreapp3.1\Employee.Core.dll
+D:\MF817_NguyenTrongThao\FresherV3\Employee.Core\obj\Debug\netcoreapp3.1\Employee.Core.pdb

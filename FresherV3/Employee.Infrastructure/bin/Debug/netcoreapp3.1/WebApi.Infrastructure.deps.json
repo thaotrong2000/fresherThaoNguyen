@@ -1,0 +1,79 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "WebApi.Infrastructure/1.0.0": {
+        "dependencies": {
+          "Dapper": "2.0.90",
+          "MySqlConnector": "1.3.8",
+          "WebApi.Core": "1.0.0"
+        },
+        "runtime": {
+          "WebApi.Infrastructure.dll": {}
+        }
+      },
+      "Dapper/2.0.90": {
+        "dependencies": {
+          "System.Reflection.Emit.Lightweight": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Dapper.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.90.36046"
+          }
+        }
+      },
+      "MySqlConnector/1.3.8": {
+        "runtime": {
+          "lib/netcoreapp3.1/MySqlConnector.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.3.8.0"
+          }
+        }
+      },
+      "System.Reflection.Emit.Lightweight/4.7.0": {},
+      "WebApi.Core/1.0.0": {
+        "runtime": {
+          "WebApi.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "WebApi.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Dapper/2.0.90": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-e4YjOLJptnpwHIbP8HxjaYf7So9lhUC43rvvGMEkH4Q4CiVlm4rOxYDo0HyuHlMQKj0U5Ob/nCMm52TUhTaZQg==",
+      "path": "dapper/2.0.90",
+      "hashPath": "dapper.2.0.90.nupkg.sha512"
+    },
+    "MySqlConnector/1.3.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zxE+MDrpfPLEUvkUR73brSLiWwDtp5yoNmEk5vEj0vzoVJmR2lBJcOPowigbkR305lM2IKgCL8TP1iIC9xSi7A==",
+      "path": "mysqlconnector/1.3.8",
+      "hashPath": "mysqlconnector.1.3.8.nupkg.sha512"
+    },
+    "System.Reflection.Emit.Lightweight/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-a4OLB4IITxAXJeV74MDx49Oq2+PsF6Sml54XAFv+2RyWwtDBcabzoxiiJRhdhx+gaohLh4hEGCLQyBozXoQPqA==",
+      "path": "system.reflection.emit.lightweight/4.7.0",
+      "hashPath": "system.reflection.emit.lightweight.4.7.0.nupkg.sha512"
+    },
+    "WebApi.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
