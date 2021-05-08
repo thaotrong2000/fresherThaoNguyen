@@ -26,6 +26,11 @@ namespace EmployeeWeb.Api
 {
     public class Startup
     {
+        /// <summary>
+        /// Tạo biến cho phép bật CORS
+        /// </summary>
+        //private readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -36,6 +41,12 @@ namespace EmployeeWeb.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Configure CORS
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+            });
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -96,6 +107,9 @@ namespace EmployeeWeb.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            // Sử dụng MyAllowSpecificOrigins
+            app.UseCors(options => options.AllowAnyOrigin());
 
             app.UseAuthorization();
 
