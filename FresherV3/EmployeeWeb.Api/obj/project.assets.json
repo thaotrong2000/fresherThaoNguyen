@@ -732,11 +732,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\FresherV3\\EmployeeWeb.Api\\WebApi.Api.csproj",
+      "projectUniqueName": "E:\\fresherThaoNguyen\\FresherV3\\EmployeeWeb.Api\\WebApi.Api.csproj",
       "projectName": "WebApi.Api",
-      "projectPath": "E:\\FresherV3\\EmployeeWeb.Api\\WebApi.Api.csproj",
+      "projectPath": "E:\\fresherThaoNguyen\\FresherV3\\EmployeeWeb.Api\\WebApi.Api.csproj",
       "packagesPath": "C:\\Users\\Trong Thao\\.nuget\\packages\\",
-      "outputPath": "E:\\FresherV3\\EmployeeWeb.Api\\obj\\",
+      "outputPath": "E:\\fresherThaoNguyen\\FresherV3\\EmployeeWeb.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Trong Thao\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -753,11 +753,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "E:\\FresherV3\\Employee.Core\\WebApi.Core.csproj": {
-              "projectPath": "E:\\FresherV3\\Employee.Core\\WebApi.Core.csproj"
+            "E:\\fresherThaoNguyen\\FresherV3\\Employee.Core\\WebApi.Core.csproj": {
+              "projectPath": "E:\\fresherThaoNguyen\\FresherV3\\Employee.Core\\WebApi.Core.csproj"
             },
-            "E:\\FresherV3\\Employee.Infrastructure\\WebApi.Infrastructure.csproj": {
-              "projectPath": "E:\\FresherV3\\Employee.Infrastructure\\WebApi.Infrastructure.csproj"
+            "E:\\fresherThaoNguyen\\FresherV3\\Employee.Infrastructure\\WebApi.Infrastructure.csproj": {
+              "projectPath": "E:\\fresherThaoNguyen\\FresherV3\\Employee.Infrastructure\\WebApi.Infrastructure.csproj"
             }
           }
         }

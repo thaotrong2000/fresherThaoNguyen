@@ -8,15 +8,13 @@ namespace WebApi.Core.Interface.Service
     /// Interface xử lý nghiệp vụ
     /// Tạo ra khung chuẩn để các Interface Service khác kế thừa
     /// </summary>
+    /// CreatedBy: NTTHAO(8/5/2021)
     public interface IBaseService<MISAEntity> where MISAEntity : class
     {
         /// <summary>
         /// Xử lý nghiệp vụ khi lấy toàn bộ nhân viên về
         /// </summary>
-        /// <returns>
-        /// - 200 : Lấy dữ liệu thành công
-        /// - 204 : Không có dữ liệu trả về
-        /// </returns>
+        /// <returns><MISAEntity></returns>
         /// CreatedBy: NTTHAO(7/5/2021)
         public IEnumerable<MISAEntity> getAll();
 
@@ -24,10 +22,7 @@ namespace WebApi.Core.Interface.Service
         /// Xử lý nghiệp vụ khi thêm mới một nhân viên
         /// </summary>
         /// <param name="Entity"></param>
-        /// <returns>
-        /// - 201: Đã tạo thành công một nhân viên
-        /// - 400: Không thêm được dữ liệu
-        /// </returns>
+        /// <returns></returns>
         /// CreatedBy: NTTHAO(7/5/2021)
         public int Post(MISAEntity Entity);
 
@@ -35,10 +30,7 @@ namespace WebApi.Core.Interface.Service
         /// Xử lý nghiệp vụ khi sửa dữ liệu của một nhân viên
         /// </summary>
         /// <param name="Entity"></param>
-        /// <returns>
-        /// - 204 : Dữ liệu nhân viên đã được cập nhật thành công
-        /// - 400 : Không thêm được dữ liệu
-        /// </returns>
+        /// <returns></returns>
         /// CreatedBy: NTTHAO(7/5/2021)
         public int Put(MISAEntity Entity);
 
@@ -46,10 +38,7 @@ namespace WebApi.Core.Interface.Service
         /// Xử lý nghiệp vụ khi xóa dữ liệu của một bản ghi nhân viên
         /// </summary>
         /// <param name="employeeId"></param>
-        /// <returns>
-        /// - 204 : Xóa dữ liệu của nhân viên thành công
-        /// - 400 : Không thể xóa dữ liệu bản ghi của nhân viên này
-        /// </returns>
+        /// <returns></returns>
         /// CreatedBy: NTTHAO(7/5/2021)
         public int Delete(Guid employeeId);
 
@@ -62,10 +51,7 @@ namespace WebApi.Core.Interface.Service
         /// <param name="employeeId"></param>
         /// <param name="fullName"></param>
         /// <param name="phoneNumber"></param>
-        /// <returns>
-        /// - 200 : Lọc được dữ liệu thành công
-        /// - 204 : Không có dữ liệu phù hợp
-        /// </returns>
+        /// <returns></returns>
         /// CreatedBy: NTTHAO(7/5/2021)
     }
 }

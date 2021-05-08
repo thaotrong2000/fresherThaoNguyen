@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\FresherV3\\Employee.Core\\WebApi.Core.csproj",
+      "projectUniqueName": "E:\\fresherThaoNguyen\\FresherV3\\Employee.Core\\WebApi.Core.csproj",
       "projectName": "WebApi.Core",
-      "projectPath": "E:\\FresherV3\\Employee.Core\\WebApi.Core.csproj",
+      "projectPath": "E:\\fresherThaoNguyen\\FresherV3\\Employee.Core\\WebApi.Core.csproj",
       "packagesPath": "C:\\Users\\Trong Thao\\.nuget\\packages\\",
-      "outputPath": "E:\\FresherV3\\Employee.Core\\obj\\",
+      "outputPath": "E:\\fresherThaoNguyen\\FresherV3\\Employee.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Trong Thao\\AppData\\Roaming\\NuGet\\NuGet.Config",

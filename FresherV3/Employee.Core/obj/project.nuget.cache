@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BxcEPek54oGDbbyNRslE/OF60cr6LMuguF242bMFNI/OSSMMiMn0a6G/J5qKhBhEISeZ0pjmA7pLbK8sf7cjOg==",
+  "dgSpecHash": "DzwBymDC3XLP6RrwEB0mvoNGq1FzN4rF1Bxu4KlR6PyDhoSyhAGKo2Faro/heQB4DiP/u7+NHHfJXuh3ZjDzUA==",
   "success": true,
-  "projectFilePath": "E:\\FresherV3\\Employee.Core\\WebApi.Core.csproj",
+  "projectFilePath": "E:\\fresherThaoNguyen\\FresherV3\\Employee.Core\\WebApi.Core.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace MISA.Core.AttributeCustom
 {
+    /// <summary>
+    /// Attribute bắt buộc nhập
+    /// </summary>
+    /// CreatedBy: NTTHAO(8/5/2021)
     [AttributeUsage(AttributeTargets.Property)]
     public class MISARequired : Attribute
     {
@@ -17,6 +21,10 @@ namespace MISA.Core.AttributeCustom
         }
     }
 
+    /// <summary>
+    /// Độ dài Attribute giới hạn
+    /// </summary>
+    /// CreatedBy: NTTHAO(8/5/2021)
     [AttributeUsage(AttributeTargets.Property)]
     public class MISAMaxLength : Attribute
     {

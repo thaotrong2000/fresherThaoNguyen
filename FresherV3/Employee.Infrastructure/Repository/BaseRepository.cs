@@ -17,6 +17,7 @@ namespace WebApi.Infrastructure.Repository
         /// - dbConnection
         /// - tableName
         /// </summary>
+        /// CreatedBy: NTTHAO(8/5/2021)
         protected string connectString = "Host = 47.241.69.179;" +
                 "Port = 3306;" +
                 "Database = MF817-Import-NTTHAO;" +
@@ -32,7 +33,8 @@ namespace WebApi.Infrastructure.Repository
         /// Xóa một bản ghi theo khóa chính ( EmployeeId)
         /// </summary>
         /// <param name="employeeId"></param>
-        /// <returns></returns>
+        /// <returns>Số bản ghi bị xóa</returns>
+        /// CreatedBy: NTTHAO(8/5/2021)
         public int Delete(Guid entityId)
         {
             using (dbConnection = new MySqlConnection(connectString))
@@ -47,7 +49,8 @@ namespace WebApi.Infrastructure.Repository
         /// <summary>
         /// Lấy toàn bộ dữ liệu của nhân viên
         /// </summary>
-        /// <returns></returns>
+        /// <returns><MISAEntity></returns>
+        /// CreatedBy: NTTHAO(8/5/2021)
         public IEnumerable<MISAEntity> getAll()
         {
             // Kết nối với DataBase
@@ -64,8 +67,9 @@ namespace WebApi.Infrastructure.Repository
         /// <summary>
         /// Thêm mới một bản ghi nhân viên
         /// </summary>
-        /// <param name="Entity"></param>
+        /// <param name="Entity">Số bản ghi được thêm mới</param>
         /// <returns></returns>
+        /// CreatedBy: NTTHAO(8/5/2021)
         public int Post(MISAEntity Entity)
         {
             using (dbConnection = new MySqlConnection(connectString))
@@ -80,7 +84,8 @@ namespace WebApi.Infrastructure.Repository
         /// Sửa một bản ghi nhân viên
         /// </summary>
         /// <param name="Entity"></param>
-        /// <returns></returns>
+        /// <returns>Số bản ghi được sửa</returns>
+        /// CreatedBy: NTTHAO(8/5/2021)
         public int Put(MISAEntity Entity)
         {
             using (dbConnection = new MySqlConnection(connectString))

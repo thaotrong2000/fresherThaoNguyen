@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "C1/9ANfwXL6glytcfn/FyOrZcUX26t5mFFOAI/6u0sA/hEFzftqkE9t8zbdm2RIGLCn2cH1iUSfpDqb2VAYUuw==",
+  "dgSpecHash": "2ZFcy7Y7c0jVJhUl9cHzIPIQ19uHGz3Exo/mBItN4JlGMrWqU69XnNyEDaeDzwnVie+kjGqqj5c7mgNR2AGcew==",
   "success": true,
-  "projectFilePath": "E:\\FresherV3\\EmployeeWeb.Api\\WebApi.Api.csproj",
+  "projectFilePath": "E:\\fresherThaoNguyen\\FresherV3\\EmployeeWeb.Api\\WebApi.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Trong Thao\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
     "C:\\Users\\Trong Thao\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.1\\microsoft.aspnetcore.authentication.jwtbearer.5.0.1.nupkg.sha512",

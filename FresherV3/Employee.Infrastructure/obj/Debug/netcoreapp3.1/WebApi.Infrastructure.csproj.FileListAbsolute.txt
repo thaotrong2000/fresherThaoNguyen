@@ -22,3 +22,15 @@ E:\FresherV3\Employee.Infrastructure\obj\Debug\netcoreapp3.1\WebApi.Infrastructu
 E:\FresherV3\Employee.Infrastructure\obj\Debug\netcoreapp3.1\WebApi.Infrastructure.csproj.CopyComplete
 E:\FresherV3\Employee.Infrastructure\obj\Debug\netcoreapp3.1\WebApi.Infrastructure.dll
 E:\FresherV3\Employee.Infrastructure\obj\Debug\netcoreapp3.1\WebApi.Infrastructure.pdb
+E:\fresherThaoNguyen\FresherV3\Employee.Infrastructure\bin\Debug\netcoreapp3.1\WebApi.Infrastructure.deps.json
+E:\fresherThaoNguyen\FresherV3\Employee.Infrastructure\bin\Debug\netcoreapp3.1\WebApi.Infrastructure.dll
+E:\fresherThaoNguyen\FresherV3\Employee.Infrastructure\bin\Debug\netcoreapp3.1\WebApi.Infrastructure.pdb
+E:\fresherThaoNguyen\FresherV3\Employee.Infrastructure\bin\Debug\netcoreapp3.1\WebApi.Core.dll
+E:\fresherThaoNguyen\FresherV3\Employee.Infrastructure\bin\Debug\netcoreapp3.1\WebApi.Core.pdb
+E:\fresherThaoNguyen\FresherV3\Employee.Infrastructure\obj\Debug\netcoreapp3.1\WebApi.Infrastructure.csprojAssemblyReference.cache
+E:\fresherThaoNguyen\FresherV3\Employee.Infrastructure\obj\Debug\netcoreapp3.1\WebApi.Infrastructure.AssemblyInfoInputs.cache
+E:\fresherThaoNguyen\FresherV3\Employee.Infrastructure\obj\Debug\netcoreapp3.1\WebApi.Infrastructure.AssemblyInfo.cs
+E:\fresherThaoNguyen\FresherV3\Employee.Infrastructure\obj\Debug\netcoreapp3.1\WebApi.Infrastructure.csproj.CoreCompileInputs.cache
+E:\fresherThaoNguyen\FresherV3\Employee.Infrastructure\obj\Debug\netcoreapp3.1\WebApi.Infrastructure.csproj.CopyComplete
+E:\fresherThaoNguyen\FresherV3\Employee.Infrastructure\obj\Debug\netcoreapp3.1\WebApi.Infrastructure.dll
+E:\fresherThaoNguyen\FresherV3\Employee.Infrastructure\obj\Debug\netcoreapp3.1\WebApi.Infrastructure.pdb

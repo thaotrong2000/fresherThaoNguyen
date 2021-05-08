@@ -18,3 +18,14 @@ E:\FresherV3\Employee.Core\obj\Debug\netcoreapp3.1\WebApi.Core.dll
 E:\FresherV3\Employee.Core\obj\Debug\netcoreapp3.1\WebApi.Core.pdb
 E:\FresherV3\Employee.Core\obj\Debug\netcoreapp3.1\WebApi.Core.Properties.Resources.resources
 E:\FresherV3\Employee.Core\obj\Debug\netcoreapp3.1\WebApi.Core.csproj.GenerateResource.cache
+E:\fresherThaoNguyen\FresherV3\Employee.Core\bin\Debug\netcoreapp3.1\WebApi.Core.deps.json
+E:\fresherThaoNguyen\FresherV3\Employee.Core\bin\Debug\netcoreapp3.1\WebApi.Core.dll
+E:\fresherThaoNguyen\FresherV3\Employee.Core\bin\Debug\netcoreapp3.1\WebApi.Core.pdb
+E:\fresherThaoNguyen\FresherV3\Employee.Core\obj\Debug\netcoreapp3.1\WebApi.Core.csprojAssemblyReference.cache
+E:\fresherThaoNguyen\FresherV3\Employee.Core\obj\Debug\netcoreapp3.1\WebApi.Core.Properties.Resources.resources
+E:\fresherThaoNguyen\FresherV3\Employee.Core\obj\Debug\netcoreapp3.1\WebApi.Core.csproj.GenerateResource.cache
+E:\fresherThaoNguyen\FresherV3\Employee.Core\obj\Debug\netcoreapp3.1\WebApi.Core.AssemblyInfoInputs.cache
+E:\fresherThaoNguyen\FresherV3\Employee.Core\obj\Debug\netcoreapp3.1\WebApi.Core.AssemblyInfo.cs
+E:\fresherThaoNguyen\FresherV3\Employee.Core\obj\Debug\netcoreapp3.1\WebApi.Core.csproj.CoreCompileInputs.cache
+E:\fresherThaoNguyen\FresherV3\Employee.Core\obj\Debug\netcoreapp3.1\WebApi.Core.dll
+E:\fresherThaoNguyen\FresherV3\Employee.Core\obj\Debug\netcoreapp3.1\WebApi.Core.pdb

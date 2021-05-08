@@ -9,6 +9,7 @@ namespace WebApi.Core.Interface.Repository
     /// Tạo ra khung để các Interface Repository khác kế thừa
     /// </summary>
     /// <typeparam name="MISAEntity"></typeparam>
+    /// CreatedBy: NTTHAO(8/5/2021)
     public interface IBaseRepository<MISAEntity> where MISAEntity : class
     {
         /// <summary>
@@ -51,6 +52,7 @@ namespace WebApi.Core.Interface.Repository
         /// - 204 : Xóa dữ liệu của nhân viên thành công
         /// - 400 : Không thể xóa dữ liệu bản ghi của nhân viên này
         /// </returns>
+        /// CreatedBy: NTTHAO(7/5/2021)
         public int Delete(Guid employeeId);
 
         /// <summary>

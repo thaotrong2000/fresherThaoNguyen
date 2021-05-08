@@ -8,17 +8,30 @@ using WebApi.Core.Interface.Service;
 
 namespace WebApi.Core.Service
 {
+    /// <summary>
+    /// Xử lý nghiệp vụ riêng cho Employee
+    /// </summary>
+    /// CreatedBy: NTTHAO(8/5/2021)
     public class EmployeeService : BaseService<Employee>, IEmployeeService
     {
+        /// <summary>
+        /// Biến để xử lý với Database
+        /// </summary>
+        /// CreatedBy: NTTHAO(8/5/2021)
         private IEmployeeRepository _employeeRepository;
 
+        /// <summary>
+        /// Khởi tạo biến cho Class
+        /// </summary>
+        /// <param name="employeeRepository"></param>
+        /// CreatedBy: NTTHAO(8/5/2021)
         public EmployeeService(IEmployeeRepository employeeRepository) : base(employeeRepository)
         {
             _employeeRepository = employeeRepository;
         }
 
         /// <summary>
-        /// Validate dữ liệu Employee Post
+        /// Validate dữ liệu Employee thêm mới
         /// </summary>
         /// <param name="entity"></param>
         /// CreatedBy: NTTHAO(8/5/2021)
@@ -37,7 +50,7 @@ namespace WebApi.Core.Service
         }
 
         /// <summary>
-        /// Validate dữ liệu Employee Put
+        /// Validate dữ liệu Employee sửa dữ liệu
         /// </summary>
         /// <param name="entity"></param>
         /// CreatedBy: NTTHAO(8/5/2021)

@@ -10,19 +10,40 @@ using WebApi.Core.Interface.Service;
 
 namespace WebApi.Api.Controllers
 {
+    /// <summary>
+    /// Controller Quản lý nhân viên
+    /// </summary>
     [Route("v1/api/[controller]")]
     [ApiController]
     public class WebApiController : ControllerBase
     {
+        // Biến xử lý về dữ liệu
         private IEmployeeRepository _employeeRepository;
+
+        // Biến xử lý về nghiệp vụ
         private IEmployeeService _employeeService;
 
+        /// <summary>
+        /// Khởi tạo giá trị
+        /// </summary>
+        /// <param name="employeeRepository"></param>
+        /// <param name="employeeService"></param>
+        /// CreatedBy: NTTHAO(8/5/2021)
         public WebApiController(IEmployeeRepository employeeRepository, IEmployeeService employeeService)
         {
             _employeeRepository = employeeRepository;
             _employeeService = employeeService;
         }
 
+        /// <summary>
+        /// Thêm mới một nhân viên
+        /// </summary>
+        /// <param name="employee"></param>
+        /// <returns>
+        /// - 201 : Thêm mới nhân viên thành công.
+        /// - 400 : Không thêm mới được.
+        /// </returns>
+        /// CreatedBy: NTTHAO(8/5/2021)
         [HttpPost]
         public IActionResult PostData(Employee employee)
         {
@@ -37,6 +58,14 @@ namespace WebApi.Api.Controllers
             }
         }
 
+        /// <summary>
+        /// Lấy toàn bộ dữ liệu nhân viên
+        /// </summary>
+        /// <returns>
+        /// - 200 : Lấy dữ liệu thành công.
+        /// - 204 : Không có dữ liệu được trả về.
+        /// </returns>
+        /// CreatedBy: NTTHAO(8/5/2021)
         [HttpGet]
         public IActionResult GetAllData()
         {
@@ -51,6 +80,15 @@ namespace WebApi.Api.Controllers
             }
         }
 
+        /// <summary>
+        /// Sửa dữ liệu nhân viên
+        /// </summary>
+        /// <param name="employee"></param>
+        /// <returns>
+        /// - 201 : Sửa thành công dữ liệu.
+        /// - 400 : Không sửa được thành công dữ liệu.
+        /// </returns>
+        /// CreatedBy: NTTHAO(8/5/2021)
         [HttpPut]
         public IActionResult PutData(Employee employee)
         {
@@ -65,6 +103,15 @@ namespace WebApi.Api.Controllers
             }
         }
 
+        /// <summary>
+        /// Xóa một bản ghi dữ liệu
+        /// </summary>
+        /// <param name="EmployeeId"></param>
+        /// <returns>
+        /// - 204 : Xóa dữ liệu thành công.
+        /// - 400 : Không xóa thành công.
+        /// </returns>
+        /// CreatedBy: NTTHAO(8/5/2021)
         [HttpDelete]
         public IActionResult DeleteEmployee(Guid EmployeeId)
         {
@@ -79,6 +126,15 @@ namespace WebApi.Api.Controllers
             }
         }
 
+        /// <summary>
+        /// Phân trang dữ liệu hiển thị
+        /// </summary>
+        /// <param name="pageIndex">Trang cần hiển thị</param>
+        /// <param name="pageSize">Số bản ghi hiển thị của mỗi trang</param>
+        /// <returns>
+        /// - 200 : Phân trang dữ liệu thành công.
+        /// - 204 : Không có dữ liệu được trả về.
+        /// </returns>
         [HttpGet("Paging")]
         public IActionResult Paging(int pageIndex, int pageSize)
         {
@@ -93,6 +149,16 @@ namespace WebApi.Api.Controllers
             }
         }
 
+        /// <summary>
+        /// Lọc dữ liệu theo: Mã nhân viên, họ tên, số điện thoại
+        /// </summary>
+        /// <param name="employeeCode">Mã nhân viên</param>
+        /// <param name="employeeFullName">Họ và tên</param>
+        /// <param name="employeePhoneNumber">Số điện thoại</param>
+        /// <returns>
+        /// - 200 : Trả về dữ liệu thành công.
+        /// - 204 : Không có dữ liệu được trả về.
+        /// </returns>
         [HttpGet("Filter")]
         public IActionResult Filter(string employeeCode, string employeeFullName, int employeePhoneNumber)
         {
@@ -103,7 +169,7 @@ namespace WebApi.Api.Controllers
             }
             else
             {
-                throw new Exception("Khong co du lieu duoc tra ve");
+                return NoContent();
             }
         }
     }
