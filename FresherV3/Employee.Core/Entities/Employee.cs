@@ -41,6 +41,7 @@ namespace WebApi.Core.Entities
         /// <summary>
         /// Đơn vị làm việc
         /// </summary>
+        [MISARequired("Đơn vị làm việc không được phép để trống")]
         public Guid? DepartmentId { get; set; }
 
         /// <summary>

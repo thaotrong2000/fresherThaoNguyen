@@ -1,10 +1,150 @@
-
 /* Đặt các thuộc tính cho Content */
-#content{
-    position: fixed;
-    left: 180px;
-    top: 50px;
-    right: 0;
-    bottom: 0;
-    background-color: green;
+#content {
+  position: fixed;
+  left: 180px;
+  top: 50px;
+  right: 0;
+  bottom: 0;
+  background-color: #f4f5f8;
+  padding: 0 12px 12px 20px;
 }
+
+/* CSS cho dữ liệu Nhân viên */
+#employee {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* CSS cho việc thêm dữ liệu */
+.content-add-employee {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+}
+
+/* Tên bảng */
+.content-add-employee .content-table-name {
+  font-family: "NotoSans-Bold";
+  font-size: 16px;
+}
+
+/* Custom nút thêm dữ liệu - dựa trên css-button-common */
+.content-add-employee .content-button-add {
+  font-family: "NotoSans-SemiBold";
+  font-size: 13px;
+  background-color: #2ca01c;
+}
+
+/* Thao tác với dữ liệu trên Table */
+.content-data-table {
+  flex: 1;
+  max-width: 100%;
+  background-color: #ffffff;
+  padding: 0 15px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x:auto;
+}
+
+/* Công cụ tìm kiếm dữ liệu */
+.content-data-table .content-tool {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  left: 0;
+}
+
+/* Xử lý ô tìm kiếm */
+.content-tool .content-tool-search {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  height: 34px;
+  border: 1px solid #ccc;
+  padding: 1px 3px 2px 3px;
+  border-radius: 3px;
+}
+/* Xử lý ô nhập ( input ) dữ liệu tìm kiếm */
+.content-tool-search .content-tool-inputsearch {
+  border: none;
+  outline: none;
+}
+/* Xử lý biểu tượng tìm kiếm */
+.content-tool-search .content-tool-icon {
+  width: 24px;
+  height: 24px;
+  background-image: url("../../assets/img/Sprites.64af8f61.svg");
+  background-repeat: no-repeat;
+  background-position: -992px -356px;
+  cursor: pointer;
+}
+
+/* Biểu tượng reload */
+.content-tool-reload {
+  width: 24px;
+  height: 24px;
+  background-image: url("../../assets/img/Sprites.64af8f61.svg");
+  background-repeat: no-repeat;
+  background-position: -423px -200px;
+  margin-left: 12px;
+  cursor: pointer;
+}
+
+/* Xử lý nơi hiển thị dữ liệu */
+.content-table {
+  flex: 1;
+  overflow: auto;
+  border-collapse: collapse;
+  width: 100%;
+  max-height: calc(100% - 90px);
+}
+
+/* Dính thead vào thanh table */
+.content-data-table thead tr th {
+  position: sticky;
+  top: -1px;
+  background-color: #f4f5f8;
+  
+}
+/* Tạo border cho các ô dữ liệu */
+.content-data-table th,td{
+    border: 1px solid #ccc;
+    height: 42px;
+    min-width: 150px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+/* Dính những ô quan trọng vào màn hình */
+.content-table-columnsticky{
+}
+
+/* Thử cách mới */
+
+/* Xử lý nơi phân trang dữ liệu */
+.content-paging {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Tổng số bản ghi Nhân Viên */
+.content-all-employee{
+  
+}
+
+.content-all-employee .all-employee{
+  font-family: NotoSans-Bold;
+  font-size: 14px;
+}
+
+

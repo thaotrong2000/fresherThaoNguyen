@@ -1,6 +1,6 @@
 <template>
     <div id="content">
-        Content
+        <router-view></router-view>
     </div>
 </template>
 
@@ -12,5 +12,5 @@ export default {
 
 <style>
 @import "../../style/layout/css-content.css";
-
+@import "../../style/common/css-button-common.css";
 </style>

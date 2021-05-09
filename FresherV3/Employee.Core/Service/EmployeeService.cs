@@ -46,6 +46,25 @@ namespace WebApi.Core.Service
                 {
                     throw new CustomerException(Properties.Resources.Error_EmployeeCodeExist);
                 }
+
+                // Check xem mã Đơn vị công tác thêm vào có hợp lệ không?
+                var checkDepartmentId = _employeeRepository.CheckDepartmentIdExist(entity.DepartmentId);
+                // Check Guid
+                string correctString = entity.DepartmentId.ToString();
+                Guid guid;
+                bool guidResTrue = Guid.TryParse(correctString, out guid);
+
+                // Kiểm tra xem DepartmentId có phải là Guid
+                if (guidResTrue == false)
+                {
+                    throw new CustomerException("Không phải Guid");
+                }
+
+                // Kiểm tra xem DepartmentId đã tồn tại hay chưa
+                if (checkDepartmentId == false)
+                {
+                    throw new CustomerException(Properties.Resources.Error_DepartmentId);
+                }
             }
         }
 

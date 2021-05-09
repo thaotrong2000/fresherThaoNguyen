@@ -1,0 +1,12 @@
+/* Nút thêm, cất dữ liệu, ... */
+.button-common{
+    padding: 8px 10px;
+    border: none;
+    color: #ffffff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.button-common:hover{
+    background-color: #5cd84b;
+}

@@ -6,5 +6,74 @@
     left: 180px;
     top: 0;
     right: 0;
-    background-color: blue;
+    display: flex; 
+    background-color:#ffffff;
+    padding: 2px 10px 2px 10px;
+}
+
+/* Header thông tin công ty */
+.header-company{
+    height: 100%;
+    width: 400px;
+    display: flex;
+    align-items: center;
+}
+/* Header thu nhỏ Navbar */
+.header-company .header-mini{
+    width: 24px;
+    height: 24px;
+    background-image: url("../../assets/img/Sprites.64af8f61.svg");
+    background-position: -842px -30px;
+    background-repeat: no-repeat;
+    margin-right: 15px;
+}
+/* Header tên công ty */
+.header-company .header-company-name{
+    font-family: NotoSans-SemiBold;
+    font-size: 14px;
+}
+/* Header biểu tưởng đổi công ty */
+.header-company .header-company-icon, .header-infor .header-infor-system{
+    width: 24px;
+    height: 24px;
+    transform: rotate(90deg);
+    background-image: url("../../assets/img/Sprites.64af8f61.svg");
+    background-position: -75px -355px;
+    background-repeat: no-repeat;
+}
+
+
+/* Header thông tin khách hàng */
+.header-infor{
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+/* Header icon thông báo */
+.header-infor .header-infor-noti{
+    width: 24px;
+    height: 24px;
+    background-image: url("../../assets/img/Sprites.64af8f61.svg");
+    background-position: -788px -30px;
+    background-repeat: no-repeat;
+    margin-right: 15px;
+    margin-left: auto;
+}
+/* Header Avatar default  */
+.header-infor .header-infor-avatar{
+    width: 24px;
+    height: 24px;
+    background-image: url("../../assets/ava-default.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-right: 5px;
+}
+/* Header tên người dùng  */
+.header-infor .header-infor-name{
+    font-family: "NotoSans-SemiBold";
+    font-size: 14px;
+}
+/* Header lựa chọn system */
+.header-infor .header-infor-system{
+    
 }

@@ -64,7 +64,11 @@
 }
 /* Xử lý khi Hover vào ô router */
 .navbar-router .navbar-router-select:hover{
-  background-color: #f1f1f1;
+  background-color: #808080;
+}
+/* Xử lý khi Click vào một lựa chọn */
+.navbar-router .navbar-router-select:active{
+  background-color: #ccc;
 }
 
 /* Xử lý icon bên trong vùng chọn */

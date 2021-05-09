@@ -61,6 +61,15 @@ namespace WebApi.Core.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DepartmentId không tồn tại trong hệ thống, hãy nhập lại!..
+        /// </summary>
+        public static string Error_DepartmentId {
+            get {
+                return ResourceManager.GetString("Error_DepartmentId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mã khách hàng đã tồn tại trên hệ thống!..
         /// </summary>
         public static string Error_EmployeeCodeExist {
@@ -75,6 +84,15 @@ namespace WebApi.Core.Properties {
         public static string Error_EmployeeCodeNoExist {
             get {
                 return ResourceManager.GetString("Error_EmployeeCodeNoExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Không được để trống.
+        /// </summary>
+        public static string Error_Msf_Empty {
+            get {
+                return ResourceManager.GetString("Error_Msf_Empty", resourceCulture);
             }
         }
     }

@@ -15,140 +15,140 @@
     <!-- Phần thanh điều hướng của Navbar -->
     <div class="navbar-router">
       <!-- Tổng quan  -->
-      <div class="navbar-router-select">
+      <router-link class="navbar-router-select" to="/notemployee">
         <div class="navbar-router-icon">
           <div class="navbar-icon-img navbar-select-dashboard"></div>
         </div>
         <div class="navbar-router-text">
           <span class="navbar-router-content">Tổng quan</span>
         </div>
-      </div>
+      </router-link>
       <!-- Tiền mặt  -->
-      <div class="navbar-router-select">
+      <router-link class="navbar-router-select" to="/employee">
         <div class="navbar-router-icon">
           <div class="navbar-icon-img navbar-select-money"></div>
         </div>
         <div class="navbar-router-text">
           <span class="navbar-router-content">Tiền mặt</span>
         </div>
-      </div>
+      </router-link>
       <!-- Tiền gửi  -->
-      <div class="navbar-router-select">
+      <router-link class="navbar-router-select" to="/notemployee">
         <div class="navbar-router-icon">
           <div class="navbar-icon-img navbar-select-moneysend"></div>
         </div>
         <div class="navbar-router-text">
           <span class="navbar-router-content">Tiền gửi</span>
         </div>
-      </div>
+      </router-link>
       <!-- Mua hàng  -->
-      <div class="navbar-router-select">
+      <router-link class="navbar-router-select" to="/notemployee">
         <div class="navbar-router-icon">
           <div class="navbar-icon-img navbar-select-buy"></div>
         </div>
         <div class="navbar-router-text">
           <span class="navbar-router-content">Mua hàng</span>
         </div>
-      </div>
+      </router-link>
       <!-- Bán hàng  -->
-      <div class="navbar-router-select">
+      <router-link class="navbar-router-select" to="/notemployee">
         <div class="navbar-router-icon">
           <div class="navbar-icon-img navbar-select-sell"></div>
         </div>
         <div class="navbar-router-text">
           <span class="navbar-router-content">Bán hàng</span>
         </div>
-      </div>
+      </router-link>
       <!-- Quản lý hóa đơn  -->
-      <div class="navbar-router-select">
+      <router-link class="navbar-router-select" to="/notemployee">
         <div class="navbar-router-icon">
           <div class="navbar-icon-img navbar-select-bill"></div>
         </div>
         <div class="navbar-router-text">
           <span class="navbar-router-content">Quản lý hóa đơn</span>
         </div>
-      </div>
+      </router-link>
       <!-- Kho  -->
-      <div class="navbar-router-select">
+      <router-link class="navbar-router-select" to="/notemployee">
         <div class="navbar-router-icon">
           <div class="navbar-icon-img navbar-select-repository"></div>
         </div>
         <div class="navbar-router-text">
           <span class="navbar-router-content">Kho </span>
         </div>
-      </div>
+      </router-link>
       <!-- Tool  -->
-      <div class="navbar-router-select">
+      <router-link class="navbar-router-select" to="/notemployee">
         <div class="navbar-router-icon">
           <div class="navbar-icon-img navbar-select-tool"></div>
         </div>
         <div class="navbar-router-text">
           <span class="navbar-router-content">Công cụ dụng cụ</span>
         </div>
-      </div>
+      </router-link>
       <!-- Tài sản cố định  -->
-      <div class="navbar-router-select">
+      <router-link class="navbar-router-select" to="/notemployee">
         <div class="navbar-router-icon">
           <div class="navbar-icon-img navbar-select-asset"></div>
         </div>
         <div class="navbar-router-text">
           <span class="navbar-router-content">Tài sản cố định</span>
         </div>
-      </div>
+      </router-link>
       <!-- Thuế  -->
-      <div class="navbar-router-select">
+      <router-link class="navbar-router-select" to="/notemployee">
         <div class="navbar-router-icon">
           <div class="navbar-icon-img navbar-select-tax"></div>
         </div>
         <div class="navbar-router-text">
           <span class="navbar-router-content">Thuế</span>
         </div>
-      </div>
+      </router-link>
       <!-- Giá thành  -->
-      <div class="navbar-router-select">
+      <router-link class="navbar-router-select" to="/notemployee">
         <div class="navbar-router-icon">
           <div class="navbar-icon-img navbar-select-price"></div>
         </div>
         <div class="navbar-router-text">
           <span class="navbar-router-content">Giá thành</span>
         </div>
-      </div>
+      </router-link>
       <!-- Tổng hợp  -->
-      <div class="navbar-router-select">
+      <router-link class="navbar-router-select" to="/notemployee">
         <div class="navbar-router-icon">
           <div class="navbar-icon-img navbar-select-summary"></div>
         </div>
         <div class="navbar-router-text">
           <span class="navbar-router-content">Tổng hợp</span>
         </div>
-      </div>
+      </router-link>
       <!-- Ngân sách  -->
-      <div class="navbar-router-select">
+      <router-link class="navbar-router-select" to="/notemployee">
         <div class="navbar-router-icon">
           <div class="navbar-icon-img navbar-select-budget"></div>
         </div>
         <div class="navbar-router-text">
           <span class="navbar-router-content">Ngân sách</span>
         </div>
-      </div>
+      </router-link>
       <!-- Báo cáo  -->
-      <div class="navbar-router-select">
+      <router-link class="navbar-router-select" to="/notemployee">
         <div class="navbar-router-icon">
           <div class="navbar-icon-img navbar-select-report"></div>
         </div>
         <div class="navbar-router-text">
           <span class="navbar-router-content">Báo cáo</span>
         </div>
-      </div>
+      </router-link>
       <!-- Phân tích tài chính  -->
-      <div class="navbar-router-select">
+      <router-link class="navbar-router-select" to="/notemployee">
         <div class="navbar-router-icon">
           <div class="navbar-icon-img navbar-select-analyst"></div>
         </div>
         <div class="navbar-router-text">
           <span class="navbar-router-content">Phân tích tài chính</span>
         </div>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
