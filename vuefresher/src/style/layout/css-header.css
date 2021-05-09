@@ -1,0 +1,10 @@
+
+/* Đặt các thuộc tính cho Header -- Dài, rộng, vị trí */
+#header{
+    height: 50px;
+    position: fixed;
+    left: 180px;
+    top: 0;
+    right: 0;
+    background-color: blue;
+}

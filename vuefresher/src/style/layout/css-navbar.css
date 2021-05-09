@@ -1,0 +1,192 @@
+/* Đặt các thuộc tính chung cho Navbar -- dài rộng  */
+
+#navbar {
+  width: 180px;
+  height: 100vh;
+  background-color: #38393d;
+}
+
+/* Đặt kích thước cho phần bao hàm: Logo và Tên sản phẩm */
+
+.navbar-logo {
+  display: flex;
+  width: 100%;
+  height: 50px;
+}
+
+/* Đặt thuộc tính kích thước cho phần biểu tượng Toggle */
+
+.navbar-logo .navbar-logo-toggle {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  height: 100%;
+  width: 60px;
+  background-color: #38393d;
+}
+
+/* Chứa biểu tượng Toggle */
+.navbar-logo-toggle .navbar-toggle-icon {
+  width: 24px;
+  height: 24px;
+  background-image: url("../../assets/img/Sprites.64af8f61.svg");
+  background-repeat: no-repeat;
+  background-position: -424px -86px;
+  margin-right: 14px;
+}
+
+/* Đặt thuộc tính kích thước cho Biểu tượng Sản phẩm và Tên sản phẩm */
+
+.navbar-logo .navbar-logo-text {
+  height: 100%;
+  flex: 1;
+  background-image: url("../../assets/img/Logo_Module_TiengViet_White.66947422.svg");
+  background-size: auto 32px;
+  background-repeat: no-repeat;
+  background-position: 0;
+}
+
+/* Xử lý thanh điểu hướng (Router) trong Navbar */
+
+/* Đặt các thuộc tính kích thước  */
+.navbar-router{
+    width: 100%; 
+    height: calc(100vh - 50px);
+    padding-top: 14px;
+    overflow: auto;
+}
+
+/* Xử lý từng lựa chọn */
+.navbar-router .navbar-router-select{
+    width: 100%; 
+    height: 42px;
+    display: flex;
+}
+/* Xử lý khi Hover vào ô router */
+.navbar-router .navbar-router-select:hover{
+  background-color: #f1f1f1;
+}
+
+/* Xử lý icon bên trong vùng chọn */
+.navbar-router-select .navbar-router-icon{
+  height: 100%;
+  width: 35px;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  
+}
+/* Xử lý thông số chung cho icon, sẽ custom cho từng mục ở dưới */
+.navbar-router-icon .navbar-icon-img{
+  width: 24px;
+  height: 24px;
+  /* Custom cho từng thư mục */
+  
+}
+/* Custom icon cho từng lựa chọn */
+
+/* Tổng quan */
+.navbar-select-dashboard{
+  background-image: url("../../assets/img/Sprites.64af8f61.svg");
+  background-position: -30px -1628px;
+  background-repeat:no-repeat;
+}
+/* Tiền mặt */
+.navbar-select-money{
+  background-image: url("../../assets/img/Sprites.64af8f61.svg");
+  background-position: -74px -1628px;
+  background-repeat:no-repeat;
+}
+/* Tiền gửi */
+.navbar-select-moneysend{
+  background-image: url("../../assets/img/Sprites.64af8f61.svg");
+  background-position: -117px -1628px;
+  background-repeat:no-repeat;
+}
+/* Tiền gửi */
+.navbar-select-buy{
+  background-image: url("../../assets/img/Sprites.64af8f61.svg");
+  background-position: -160px -1628px;
+  background-repeat:no-repeat;
+}
+/* Bán hàng */
+.navbar-select-sell{
+  background-image: url("../../assets/img/Sprites.64af8f61.svg");
+  background-position: -204px -1628px;
+  background-repeat:no-repeat;
+}
+/* Quản lý hóa đơn */
+.navbar-select-bill{
+  background-image: url("../../assets/img/Sprites.64af8f61.svg");
+  background-position: -248px -1628px;
+  background-repeat:no-repeat;
+}
+/* Kho */
+.navbar-select-repository{
+  background-image: url("../../assets/img/Sprites.64af8f61.svg");
+  background-position: -289px -1628px;
+  background-repeat:no-repeat;
+}
+/* Công cụ dụng cụ */
+.navbar-select-tool{
+  background-image: url("../../assets/img/Sprites.64af8f61.svg");
+  background-position: -334px -1628px;
+  background-repeat:no-repeat;
+}
+/* Tài sản cố định */
+.navbar-select-asset{
+  background-image: url("../../assets/img/Sprites.64af8f61.svg");
+  background-position: -377px -1628px;
+  background-repeat:no-repeat;
+}
+/* Thuế */
+.navbar-select-tax{
+  background-image: url("../../assets/img/Sprites.64af8f61.svg");
+  background-position: -421px -1628px;
+  background-repeat:no-repeat;
+}
+/* Gía thành */
+.navbar-select-price{
+  background-image: url("../../assets/img/Sprites.64af8f61.svg");
+  background-position: -466px -1628px;
+  background-repeat:no-repeat;
+}
+/* Tổng hợp */
+.navbar-select-summary{
+  background-image: url("../../assets/img/Sprites.64af8f61.svg");
+  background-position: -508px -1628px;
+  background-repeat:no-repeat;
+}
+/* Ngân sách */
+.navbar-select-budget{
+  background-image: url("../../assets/img/Sprites.64af8f61.svg");
+  background-position: -375px -1659px;
+  background-repeat:no-repeat;
+}
+/* Báo cáo */
+.navbar-select-report{
+  background-image: url("../../assets/img/Sprites.64af8f61.svg");
+  background-position: -544px -1628px;
+  background-repeat:no-repeat;
+}
+/* Phân tích tài chính */
+.navbar-select-analyst{
+  background-image: url("../../assets/img/Sprites.64af8f61.svg");
+  background-position: -202px -1661px;
+  background-repeat:no-repeat;
+}
+
+/* Xử lý vùng text bên trong vùng chọn - dùng chung cho tất cả */
+.navbar-router-select .navbar-router-text{
+  flex: 1;
+  font-family:'NotoSans-SemiBold';
+  color: #ffffff;
+  font-size: 12.5px;
+  padding-left: 10px;
+
+}
+/* Chỉnh sửa chữ bên trong */
+.navbar-router-text .navbar-router-content{
+  display: inline-block;
+  padding-top:14px;
+}

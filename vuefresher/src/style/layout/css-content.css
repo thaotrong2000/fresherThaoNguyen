@@ -1,0 +1,10 @@
+
+/* Đặt các thuộc tính cho Content */
+#content{
+    position: fixed;
+    left: 180px;
+    top: 50px;
+    right: 0;
+    bottom: 0;
+    background-color: green;
+}
