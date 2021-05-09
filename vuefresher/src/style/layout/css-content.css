@@ -147,4 +147,20 @@
   font-size: 14px;
 }
 
+/* Phân trang dữ liệu */
+
+.content-paging-number{
+
+}
+
+/* Chọn số bản ghi muốn hiển thị */
+.paging-number-employee{
+  position: relative;
+}
+
+/* Các mục lựa chọn sẽ có vị trí tương đối với paging-number-employee */
+.paging-selected-employee{
+  position: absolute;
+  bottom: 40px;
+}
 

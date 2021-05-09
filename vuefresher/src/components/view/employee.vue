@@ -75,19 +75,29 @@
       <div class="content-paging-number" @click="paging()">
         <!-- Chọn số bản ghi trên một trang -->
         <div class="paging-number-employee">
-          
+          10 bản ghi hiển thị
+          <div class="paging-selected-employee">
+            <div class="paging-selected-10">10 bản ghi hiển thị</div>
+            <div class="paging-selected-10">20 bản ghi hiển thị</div>
+          </div>
         </div>
 
         <!-- Chọn trang muốn hiển thị -->
         <div class="paging-number-display"></div>
       </div>
     </div>
+    <Dialog/>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import Dialog from '../layout/dialog.vue';
 export default {
+  // Sử dụng các Component từ bên ngoài
+  components:{
+    Dialog
+  },
   // Toàn bộ các biến được lưu trữ ở đây
   data() {
     return {

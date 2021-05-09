@@ -1,0 +1,26 @@
+#dialog{
+    color: red;
+}
+
+/* Làm mờ phần nội dung chính */
+.dialog-opacity{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.3;
+    background-color: #000000;
+}
+
+/* Phần nội chính của Dialog */
+
+.dialog-content{
+    position: fixed; 
+    top: 0;
+    bottom: 0;
+    width: 900px;
+    left: calc(50% - 450px); 
+    background-color: #ffffff;
+}
+
