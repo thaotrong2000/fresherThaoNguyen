@@ -54,20 +54,5 @@ namespace WebApi.Core.Interface.Repository
         /// </returns>
         /// CreatedBy: NTTHAO(7/5/2021)
         public int Delete(Guid employeeId);
-
-        /// <summary>
-        /// Lọc nhân viên theo:
-        /// - CustomerId : Mã nhân viên
-        /// - FullName : Tên nhân viên
-        /// - PhoneNumber : Số điện thoại
-        /// </summary>
-        /// <param name="employeeId"></param>
-        /// <param name="fullName"></param>
-        /// <param name="phoneNumber"></param>
-        /// <returns>
-        /// - 200 : Lọc được dữ liệu thành công
-        /// - 204 : Không có dữ liệu phù hợp
-        /// </returns>
-        /// CreatedBy: NTTHAO(7/5/2021)
     }
 }

@@ -21,7 +21,7 @@ namespace WebApi.Core.Interface.Repository
         /// <param name="employeePhoneNumber">Số điện thoại</param>
         /// <returns><Employee></returns>
         /// CreatedBy: NTTHAO(8/5/2021)
-        public IEnumerable<Employee> FilterByIdNamePhone(string employeeCode, string employeeFullName, int employeePhoneNumber);
+        public IEnumerable<Employee> FilterByIdNamePhone(string employeeCode, string employeeFullName, string employeePhoneNumber);
 
         /// <summary>
         /// Phân trang dữ liệu

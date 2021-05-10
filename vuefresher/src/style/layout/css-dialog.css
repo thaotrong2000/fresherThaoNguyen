@@ -1,27 +1,242 @@
-#dialog{
-    display: block;
-    color: red;
+#dialog {
+  display: block;
 }
 
 /* Làm mờ phần nội dung chính */
-.dialog-opacity{
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    opacity: 0.3;
-    background-color: #000000;
+.dialog-opacity {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0.3;
+  background-color: #000000;
 }
 
 /* Phần nội chính của Dialog */
 
-.dialog-content{
-    position: fixed; 
-    top: 0;
-    bottom: 0;
-    width: 900px;
-    left: calc(50% - 450px); 
-    background-color: #ffffff;
+.dialog-content {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 900px;
+  left: calc(50% - 450px);
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 10px 15px 20px;
 }
 
+/* Phần header */
+.dialog-header {
+  width: 100%;
+  height: 35px;
+  display: flex;
+  align-items: center;
+}
+.dialog-header-infor {
+  font-family: "NotoSans-Bold";
+  font-size: 22px;
+  padding-right: 20px;
+}
+.dialog-header-select {
+  font-size: 14px;
+  padding-left: 10px;
+}
+.dialog-header-customer {
+  padding-right: 25px;
+}
+
+.dialog-header-checkbox {
+  width: 18px;
+  height: 18px;
+}
+.dialog-header-help {
+  margin-left: auto;
+  width: 24px;
+  height: 24px;
+  background-image: url("../../assets/img/Sprites.64af8f61.svg");
+  background-repeat: no-repeat;
+  background-position: -89px -144px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.dialog-header-close {
+  width: 24px;
+  height: 24px;
+  background-image: url("../../assets/img/Sprites.64af8f61.svg");
+  background-repeat: no-repeat;
+  background-position: -144px -144px;
+  cursor: pointer;
+}
+
+.dialog-header-close:hover {
+  background-color: #cccccc;
+}
+
+/* Phần content  */
+.dialog-content-middle {
+  width: 100%;
+  flex: 1;
+}
+
+/* Phần nội dung thứ 1 */
+.dialog-content-top {
+  width: 100%;
+  height: 200px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+/* Trên bên trái */
+.dialog-content-topleft {
+  width: 48%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+/* Dùng chung cho 4 phần từ đầu tiên  */
+.dialog-topleft {
+  height: 60px;
+}
+.dialog-topright {
+  height: 60px;
+}
+.dialog-topleft-one {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dialog-input {
+  width: 100%;
+  height: 32px;
+  outline: none;
+  border-radius: 3px;
+  border: 1px solid #cccccc;
+  padding-left: 10px;
+}
+.dialog-topleft-two {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.dialog-topleft-three {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dialog-topleft-four {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Trên bên phải */
+.dialog-content-topright {
+  width: 48%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.dialog-topright-one {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.dialog-topright-two {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* Format giới tính */
+.dialog-topright-two form {
+  display: flex;
+  align-items: center;
+  height: 32px;
+}
+
+.dialog-topright-two form input {
+  margin-right: 10px;
+  margin-left: 10px;
+  width: 16px;
+  height: 16px;
+  appearance: none;
+
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  padding: 3px;
+  
+  border: 1px solid #cccccc;
+  border-radius: 50%;
+
+  cursor: pointer;
+}
+
+.dialog-topright-two form input:checked {
+    background-clip: content-box;
+  background-color: #2ca01c;
+  border-color: #2ca01c;
+}
+
+.dialog-topright-two form input:first-child {
+  margin-left: 0;
+}
+.dialog-topright-three {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.dialog-topright-four {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.dialog-topright-five {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Phần nội dung thứ 2 */
+.dialog-content-bottom {
+  width: 100%;
+  height: 200px;
+  background-color: #ccc;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+/* Dưới bên trái */
+.dialog-content-bottomleft {
+  width: 48%;
+  height: 100%;
+  background-color: gold;
+}
+/* Trên bên phải */
+.dialog-content-bottomright {
+  width: 48%;
+  height: 100%;
+  background-color: gold;
+}
+
+/* Phần footer */
+.dialog-footer {
+  width: 100%;
+  height: 60px;
+  background-color: greenyellow;
+}

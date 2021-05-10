@@ -160,7 +160,7 @@ namespace WebApi.Api.Controllers
         /// - 204 : Không có dữ liệu được trả về.
         /// </returns>
         [HttpGet("Filter")]
-        public IActionResult Filter(string employeeCode, string employeeFullName, int employeePhoneNumber)
+        public IActionResult Filter(string employeeCode, string employeeFullName, string employeePhoneNumber)
         {
             var filterEmployee = _employeeRepository.FilterByIdNamePhone(employeeCode, employeeFullName, employeePhoneNumber);
             if (filterEmployee.Count() > 0)

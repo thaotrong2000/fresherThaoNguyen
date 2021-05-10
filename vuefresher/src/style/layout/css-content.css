@@ -220,3 +220,12 @@
   align-items: center;
 }
 
+/* Chọn số trang */
+.paging-display-pre{
+  padding: 0 10px;
+}
+
+.paging-dipslay-next{
+  padding: 0 10px;
+}
+

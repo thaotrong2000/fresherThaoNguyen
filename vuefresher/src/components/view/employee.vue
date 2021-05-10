@@ -24,7 +24,7 @@
             placeholder="Tìm theo mã, tên nhân viên"
           />
           <!-- Biểu tượng tìm kiếm -->
-          <div class="content-tool-icon" @click=filterEmployee()></div>
+          <div class="content-tool-icon" @click="filterEmployee()"></div>
         </div>
         <!-- Reload trang -->
         <div class="content-tool-reload"></div>
@@ -58,7 +58,7 @@
             <td>{{ employee.bankId }}</td>
             <td>{{ employee.bankName }}</td>
             <td>{{ employee.bankBranch }}</td>
-            <td>Updating</td>
+            <td @click=editEmployee(employee.employeeId)>Updating</td>
           </tr>
         </tbody>
       </table>
@@ -129,7 +129,7 @@
         </div>
       </div>
     </div>
-    <Dialog :ishow="isShowDialog" @closeDialog = closeDialog() />
+    <Dialog :ishow="isShowDialog" @closeDialog="closeDialog()" />
   </div>
 </template>
 
@@ -151,6 +151,8 @@ export default {
       demoClass: false,
       pageSizeEmployee: 0,
       isShowDialog: false,
+      stringFilterEmployee: "",
+      employeeIdSelected: ""
     };
   },
   // Sau khi tạo xong sẽ chạy Created
@@ -158,7 +160,7 @@ export default {
     // Thực hiện lấy toàn bộ dữ liệu và gán vào biến: employeeGetAll
     axios
       .get(
-        "https://localhost:44308/v1/api/WebApi/Paging?pageIndex=1&pageSize=10"
+        "https://localhost:44308/v1/api/WebApi"
       )
       .then((res) => {
         console.log(res.data);
@@ -170,6 +172,7 @@ export default {
       .catch((res) => {
         console.log(res);
       });
+
   },
   methods: {
     addEmployee() {
@@ -202,16 +205,37 @@ export default {
           console.log(res);
         });
     },
-    closeDialog(){
+    closeDialog() {
       this.isShowDialog = false;
     },
 
     // Lọc dữ liệu dựa trên Mã nhân viên, tên hoặc số điện thoại
-    filterEmployee(){
-      alert("thao");
+    filterEmployee() {
+      // Biến lưu dữ liệu từ thao tác nhập vào ô Input của người dùng
+      var filterData = $(".content-tool-inputsearch").val();
+      this.stringFilterEmployee = filterData;      
+      // Thực hiện lọc dữ liệu từ API với các biến đã được chọn
+      axios
+        .get(
+          "https://localhost:44308/v1/api/WebApi/Filter?employeeCode="+filterData+"&employeeFullName="+filterData+"&employeePhoneNumber="+filterData
+        )
+        .then((res) => {
+          console.log(res.data);
+          // Toàn bộ dữ liệu lấy về - lưu vào biến employeeGetAll
+          this.employeeGetAll = res.data;
+        })
+        .catch((res) => {
+          console.log(res);
+        });
+
+      
+    },
+
+    // Lấy employeeId của bản ghi khi Click vào
+    editEmployee(employeeId){
+      this.employeeIdSelected = employeeId;
+      alert(this.employeeIdSelected);
     }
-
-
   },
   mounted() {},
 };

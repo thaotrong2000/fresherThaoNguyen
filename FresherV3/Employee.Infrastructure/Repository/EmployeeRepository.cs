@@ -19,7 +19,7 @@ namespace WebApi.Infrastructure.Repository
         /// <param name="entityPhoneNumber"></param>
         /// <returns>Danh sách nhân viên phù hợp</returns>
         /// CreatedBy: 9/5/2021(NTTHAO)
-        public IEnumerable<Employee> FilterByIdNamePhone(string employeeCode, string employeeFullName, int employeePhoneNumber)
+        public IEnumerable<Employee> FilterByIdNamePhone(string employeeCode, string employeeFullName, string employeePhoneNumber)
         {
             using (dbConnection = new MySqlConnection(connectString))
             {

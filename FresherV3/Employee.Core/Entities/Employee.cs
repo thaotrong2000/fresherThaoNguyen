@@ -72,7 +72,7 @@ namespace WebApi.Core.Entities
         /// <summary>
         /// Số điện thoại
         /// </summary>
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         /// <summary>
         /// Số điện thoại cố định
