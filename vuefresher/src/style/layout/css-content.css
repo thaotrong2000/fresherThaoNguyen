@@ -150,17 +150,73 @@
 /* Phân trang dữ liệu */
 
 .content-paging-number{
+  display: flex;
 
 }
 
 /* Chọn số bản ghi muốn hiển thị */
 .paging-number-employee{
   position: relative;
+  width: 200px;
+  height: 32px;
+}
+
+/* Nơi hiển thị số dữ liệu muốn hiển thị */
+.page-select-default{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  border: 1px solid #cccccc;
+  padding-left: 10px;
+}
+
+/* Sửa mục text lựa chọn  */
+.page-select-default .page-select-text{
+  padding-right: 10px;
+  flex: 1;
+}
+/* Sửa mục icon lựa chọn */
+.page-select-default .page-select-icon{
+    width: 30px;
+    height: 32px;
+    background-image: url("../../assets/img/Sprites.64af8f61.svg");
+    background-repeat: no-repeat;
+    background-position: -552px -351px;
+}
+/* Hover vào icon sẽ đổi toggle */
+.page-select-default .page-select-icon:hover{
+  background-color: #cccccc;
 }
 
 /* Các mục lựa chọn sẽ có vị trí tương đối với paging-number-employee */
 .paging-selected-employee{
   position: absolute;
   bottom: 40px;
+  border: 1px solid #cccccc;
+  border-radius: 2px;
+  width: 100%;
+  display: none;
+}
+
+
+.page-selected{
+  width: 100%;
+  height: 32px;
+  padding-left: 10px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+}
+
+/* Hover: Chuyển màu chữ khi hover vào 1 lựa chọn số bản ghi hiển thị */
+.page-selected:hover{
+  color: #2ca01c;
+  background-color: #cccccc;
+}
+
+/* Nơi lựa chọn cách dữ liệu muốn hiển thị */
+.paging-number-display{
+  display: flex;
+  align-items: center;
 }
 

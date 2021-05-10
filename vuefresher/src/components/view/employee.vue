@@ -7,7 +7,7 @@
         Nhân viên
       </div>
       <!-- Nút thêm nhân viên -->
-      <button class="content-button-add button-common">
+      <button class="content-button-add button-common" @click="addEmployee()">
         Thêm mới nhân viên
       </button>
     </div>
@@ -24,7 +24,7 @@
             placeholder="Tìm theo mã, tên nhân viên"
           />
           <!-- Biểu tượng tìm kiếm -->
-          <div class="content-tool-icon"></div>
+          <div class="content-tool-icon" @click=filterEmployee()></div>
         </div>
         <!-- Reload trang -->
         <div class="content-tool-reload"></div>
@@ -72,44 +72,94 @@
         ghi
       </div>
       <!-- Phân trang  -->
-      <div class="content-paging-number" @click="paging()">
+      <div class="content-paging-number">
         <!-- Chọn số bản ghi trên một trang -->
         <div class="paging-number-employee">
-          10 bản ghi hiển thị
+          <div class="page-select-default">
+            <div class="page-select-text" value="10">
+              10 bản ghi hiển thị
+            </div>
+            <div class="page-select-icon"></div>
+          </div>
           <div class="paging-selected-employee">
-            <div class="paging-selected-10">10 bản ghi hiển thị</div>
-            <div class="paging-selected-10">20 bản ghi hiển thị</div>
+            <div
+              class="paging-selected-10 page-selected"
+              value="10"
+              id="selected-10"
+              :class="{ test: demoClass }"
+              @click="paging(10)"
+            >
+              10 bản ghi hiển thị
+            </div>
+            <div
+              class="paging-selected-20 page-selected"
+              id="selected-20"
+              value="20"
+              @click="paging(20)"
+            >
+              20 bản ghi hiển thị
+            </div>
+            <div
+              class="paging-selected-30 page-selected"
+              id="selected-30"
+              value="30"
+              @click="paging(30)"
+            >
+              30 bản ghi hiển thị
+            </div>
+            <div
+              class="paging-selected-40 page-selected"
+              id="selected-40"
+              value="40"
+              @click="paging(40)"
+            >
+              40 bản ghi hiển thị
+            </div>
           </div>
         </div>
 
         <!-- Chọn trang muốn hiển thị -->
-        <div class="paging-number-display"></div>
+        <div class="paging-number-display">
+          <!-- PrePage -->
+          <div class="paging-display-pre">Trước</div>
+          <!-- Chọn trang số mấy -->
+          <div class="paging-display-number">1 2</div>
+          <!-- Chọn trang sau -->
+          <div class="paging-dipslay-next">Sau</div>
+        </div>
       </div>
     </div>
-    <Dialog/>
+    <Dialog :ishow="isShowDialog" @closeDialog = closeDialog() />
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import Dialog from '../layout/dialog.vue';
+import Dialog from "../layout/dialog.vue";
+import $ from "jquery";
+
 export default {
   // Sử dụng các Component từ bên ngoài
-  components:{
-    Dialog
+  components: {
+    Dialog,
   },
   // Toàn bộ các biến được lưu trữ ở đây
   data() {
     return {
       employeeGetAll: {},
       employeeGetAllCount: 0,
+      demoClass: false,
+      pageSizeEmployee: 0,
+      isShowDialog: false,
     };
   },
   // Sau khi tạo xong sẽ chạy Created
   created() {
     // Thực hiện lấy toàn bộ dữ liệu và gán vào biến: employeeGetAll
     axios
-      .get("https://localhost:44308/v1/api/WebApi")
+      .get(
+        "https://localhost:44308/v1/api/WebApi/Paging?pageIndex=1&pageSize=10"
+      )
       .then((res) => {
         console.log(res.data);
         // Toàn bộ dữ liệu lấy về - lưu vào biến employeeGetAll
@@ -122,6 +172,9 @@ export default {
       });
   },
   methods: {
+    addEmployee() {
+      this.isShowDialog = true;
+    },
     // Định dạng ngày tháng
     formatDateOfBirth(birth) {
       var d = new Date(birth),
@@ -135,17 +188,74 @@ export default {
       return [day, month, year].join("-");
     },
     // Phân trang dữ liệu Nhân Viên
-    paging() {
+    paging(x) {
+      this.pageSizeEmployee = x;
       axios
-        .get("https://localhost:44308/v1/api/WebApi/Paging?pageIndex=1&pageSize=1")
-        .then((res)=>{
+        .get(
+          "https://localhost:44308/v1/api/WebApi/Paging?pageIndex=1&pageSize=" +
+            this.pageSizeEmployee
+        )
+        .then((res) => {
           this.employeeGetAll = res.data;
         })
-        .catch((res)=>{
+        .catch((res) => {
           console.log(res);
         });
     },
+    closeDialog(){
+      this.isShowDialog = false;
+    },
+
+    // Lọc dữ liệu dựa trên Mã nhân viên, tên hoặc số điện thoại
+    filterEmployee(){
+      alert("thao");
+    }
+
+
   },
+  mounted() {},
 };
+// Xử lý Jquery
+$(document).ready(function() {
+  $(".page-select-icon").on("click", function() {
+    $(".paging-selected-employee").toggle();
+
+    $(".page-select-default").css("border", "1px solid green");
+
+    var index_select = $(".paging-selected-employee div");
+    // Lấy giá trị của giá trị được chọn
+    var value_select_text = $(".page-select-text").text();
+
+    console.log(index_select);
+    var setValue = 0;
+    // Đặt css cho nó
+    for (var count = 0; count < index_select.length; count++) {
+      index_select[count].style.backgroundColor = "#ffffff";
+      index_select[count].style.color = "#000000";
+      setValue = setValue + 10;
+      index_select[count].value = setValue;
+    }
+
+    // Set CSS cho giá trị được ch
+    for (
+      var count_select = 0;
+      count_select < index_select.length;
+      count_select++
+    ) {
+      var value_select = $(index_select[count_select]).text();
+      if (value_select_text == value_select) {
+        index_select[count_select].style.backgroundColor = "#2ca01c";
+        index_select[count_select].style.color = "#ffffff";
+      }
+    }
+  });
+
+  // Xử lý khi chọn thì binding dữ liệu lên vị trí được chọn
+  $(".page-selected").on("click", function() {
+    $(".page-select-text").text($(this).text());
+    $(".paging-selected-employee").css("display", "none");
+    $(".page-select-default").css("border", "1px solid #cccccc");
+  });
+});
 </script>
 <style></style>

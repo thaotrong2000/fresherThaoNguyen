@@ -7,6 +7,8 @@ import employee from './components/view/employee.vue'
 import notemployee from './components/view/notemployee.vue'
 
 
+
+
 Vue.config.productionTip = false
 
 const routes =[
