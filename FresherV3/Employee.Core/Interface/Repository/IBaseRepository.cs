@@ -54,5 +54,16 @@ namespace WebApi.Core.Interface.Repository
         /// </returns>
         /// CreatedBy: NTTHAO(7/5/2021)
         public int Delete(Guid employeeId);
+
+        /// <summary>
+        /// Lấy dữ liệu một bản ghi từ employeeId
+        /// </summary>
+        /// <param name="employeeId"></param>
+        /// <returns>
+        /// - 200 : Lấy dữ liệu của nhân viên thành công
+        /// - 204 : Không lấy dữ liệu bản ghi của nhân viên này
+        /// </returns>
+        /// CreatedBy: NTTHAO(9/5/2021)
+        public MISAEntity GetById(Guid employeeId);
     }
 }

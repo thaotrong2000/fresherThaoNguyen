@@ -65,6 +65,25 @@ namespace WebApi.Infrastructure.Repository
         }
 
         /// <summary>
+        /// Lấy dữ liệu khách hàng từ employeeId
+        /// </summary>
+        /// <param name="employeeId"></param>
+        /// <returns></returns>
+        /// CreatedBy: NTTHAO(10/5/2021)
+        public MISAEntity GetById(Guid employeeId)
+        {
+            using (dbConnection = new MySqlConnection(connectString))
+            {
+                DynamicParameters dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add($"@m_{tableName}Id", employeeId);
+                var employees = dbConnection.QueryFirstOrDefault<MISAEntity>($"proc_Get{tableName}ById", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+
+                // Trả về danh sách người dùng
+                return employees;
+            }
+        }
+
+        /// <summary>
         /// Thêm mới một bản ghi nhân viên
         /// </summary>
         /// <param name="Entity">Số bản ghi được thêm mới</param>

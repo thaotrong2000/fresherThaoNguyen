@@ -146,13 +146,13 @@ export default {
   // Toàn bộ các biến được lưu trữ ở đây
   data() {
     return {
-      employeeGetAll: {},
-      employeeGetAllCount: 0,
-      demoClass: false,
-      pageSizeEmployee: 0,
-      isShowDialog: false,
-      stringFilterEmployee: "",
-      employeeIdSelected: ""
+      employeeGetAll: {},       // Object lưu toàn bộ dữ liệu nhân viên được lấy về
+      employeeGetAllCount: 0,   // Đếm tổng số nhân viên trong Database
+      pageSizeEmployee: 0,      // Số phần tử trên một trang
+      isShowDialog: false,      // cho phép Dialog hiển thị hoặc không
+      stringFilterEmployee: "", // biến để lọc dữ liệu theo: mã nhân viên, tên, sđt
+      employeeIdSelected: "", // employeeId của khách hàng được ấn vào chỉnh sửa
+      employeeSelected: [] // Đây là biến khách hàng được chọn, cùng chính là biến khách hàng được thêm
     };
   },
   // Sau khi tạo xong sẽ chạy Created
@@ -234,7 +234,8 @@ export default {
     // Lấy employeeId của bản ghi khi Click vào
     editEmployee(employeeId){
       this.employeeIdSelected = employeeId;
-      alert(this.employeeIdSelected);
+      // alert(this.employeeIdSelected);
+      this.isShowDialog = true;
     }
   },
   mounted() {},

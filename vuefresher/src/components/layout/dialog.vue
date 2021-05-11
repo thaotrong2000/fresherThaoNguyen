@@ -87,14 +87,55 @@
         </div>
         <!-- Phần thông tin thứ hai -->
         <div class="dialog-content-bottom">
-          <!-- Dưới bên trái -->
-          <div class="dialog-content-bottomleft"></div>
-          <!-- Dưới bên phải -->
-          <div class="dialog-content-bottomright"></div>
+          <!-- phần 1  -->
+          <div class="dialog-bottom-one">
+            <div class="dialog-address">Địa chỉ</div>
+            <input type="text" class="dialog-input-address dialog-input" />
+          </div>
+          <!-- phần 2 -->
+          <div class="dialog-bottom-two">
+            <div class="dialog-bottom-phoneNumber">
+              <div class="dialog-phoneNumber">ĐT di động</div>
+              <input
+                type="text"
+                class="dialog-input-phoneNumber dialog-input"
+              />
+            </div>
+            <div class="dialog-bottom-landLine">
+              <div class="dialog-landLine">ĐT cố định</div>
+              <input type="text" class="dialog-input-landLine dialog-input" />
+            </div>
+            <div class="dialog-bottom-email">
+              <div class="dialog-email">Email</div>
+              <input type="text" class="dialog-input-email dialog-input" />
+            </div>
+          </div>
+          <!-- phần 3 -->
+          <div class="dialog-bottom-three">
+            <div class="dialog-bottom-phoneNumber dialog-bottom-bankId">
+              <div class="dialog-phoneNumber dialog-bankId">Tài khoản ngân hàng</div>
+              <input
+                type="text"
+                class="dialog-input-phoneNumber dialog-input dialog-input-bankId "
+              />
+            </div>
+            <div class="dialog-bottom-landLine dialog-bottom-bankName">
+              <div class="dialog-landLine">Tên ngân hàng</div>
+              <input type="text" class="dialog-input-landLine dialog-input dialog-input-bankName" />
+            </div>
+            <div class="dialog-bottom-email dialog-bottom-branch">
+              <div class="dialog-email dialog-branch">Chi nhánh</div>
+              <input type="text" class="dialog-input-email dialog-input dialog-input-branch" />
+            </div>
+          </div>
         </div>
       </div>
       <!-- Phần nút chức năng của Dialog -->
-      <div class="dialog-footer"></div>
+      <div class="dialog-footer">
+        <div class="dialog-footer-cancel button-common dialog-footer-button">Hủy</div>
+        <div class="dialog-footer-save button-common dialog-footer-button">Cất</div>
+        <div class="dialog-footer-post button-common dialog-footer-button">Cất và thêm</div>
+      </div>
     </div>
   </div>
 </template>

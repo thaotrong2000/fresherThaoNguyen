@@ -58,6 +58,20 @@ namespace WebApi.Api.Controllers
             }
         }
 
+        [HttpGet("{employeeId}")]
+        public IActionResult GetById(Guid employeeId)
+        {
+            var employees = _employeeRepository.GetById(employeeId);
+            if (employees != null)
+            {
+                return Ok(employees);
+            }
+            else
+            {
+                return NoContent();
+            }
+        }
+
         /// <summary>
         /// Lấy toàn bộ dữ liệu nhân viên
         /// </summary>
