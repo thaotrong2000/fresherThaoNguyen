@@ -13,6 +13,7 @@ namespace WebApi.Api.Controllers
     /// <summary>
     /// Controller Quản lý nhân viên
     /// </summary>
+    /// CreatedBy: NTTHAO(11/5/2021)
     [Route("v1/api/[controller]")]
     [ApiController]
     public class WebApiController : ControllerBase
@@ -196,6 +197,22 @@ namespace WebApi.Api.Controllers
         {
             var employeeCodeMax = _employeeRepository.GetCodeMax();
             return Ok(employeeCodeMax);
+        }
+
+        /// <summary>
+        /// Kiểm tra sự tồn tại của EmployeeCode
+        /// </summary>
+        /// <param name="employeeCode"></param>
+        /// <returns>
+        /// - true : đã tồn tại
+        /// - false : chưa tồn tại
+        /// </returns>
+        /// CreatedBy: NTTHAO(11/5/2021)
+        [HttpGet("ExistEmployeeCode")]
+        public IActionResult CheckExistEmployeeCode(string employeeCode)
+        {
+            var checkExistEmployeeCode = _employeeRepository.CheckEmployeeCodeExist(employeeCode);
+            return Ok(checkExistEmployeeCode);
         }
     }
 }

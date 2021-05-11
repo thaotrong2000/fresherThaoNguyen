@@ -205,6 +205,13 @@
                 type="text"
                 class="dialog-input-email dialog-input"
                 v-model="employeeSelected.email"
+                ref="employeeEmail"
+                @blur="employeeEmail()"
+                :style="
+                  checkEmployeeEmail
+                    ? 'border: 0.1px solid #ccc;'
+                    : 'border: 0.1px solid red;'
+                "
               />
             </div>
           </div>
@@ -247,7 +254,10 @@
         >
           Hủy
         </div>
-        <div class="dialog-footer-save button-common dialog-footer-button">
+        <div
+          class="dialog-footer-save button-common dialog-footer-button"
+          @click="saveEmployee()"
+        >
           Cất
         </div>
         <div
@@ -265,7 +275,6 @@
 import axios from "axios";
 import $ from "jquery";
 
-
 export default {
   props: {
     ishow: {
@@ -279,7 +288,6 @@ export default {
     employeeSelected: {
       type: Object,
     },
-    
   },
   data() {
     return {
@@ -287,14 +295,16 @@ export default {
       checkEmployeeFullName: true,
       checkEmployeeDepartmentId: true,
       checkEmployeeCode: true,
-      checkPostPutData: false
+      checkPostPutData: false,
+      checkExistEmployeeCode: false,
+      checkEmployeeEmail: true,
     };
   },
   methods: {
     closeDialog() {
       this.$emit("closeDialog");
       console.log(this.employeeSelected);
-      this.checkEmployeeFullName = true; 
+      this.checkEmployeeFullName = true;
       this.checkEmployeeDepartmentId = true;
       this.checkEmployeeCode = true;
     },
@@ -312,78 +322,94 @@ export default {
 
     // Thêm dữ liệu
     postData() {
-      if(this.statusSendData=="edit"){
+      if (this.statusSendData == "edit") {
         this.checkPostPutData = true;
       }
-      if(this.$refs.employeeFullName.value == ""){
+      if (this.$refs.employeeFullName.value == "") {
         this.checkEmployeeFullName = false;
-         $(".dialog-input-name").prop("title", "Bạn không được để trống Tên!");
+        $(".dialog-input-name").prop("title", "Bạn không được để trống Tên!");
       }
-      if(this.$refs.employeeCode.value == ""){
+      if (this.$refs.employeeCode.value == "") {
         this.checkEmployeeCode = false;
-        $(".dialog-input-code").prop("title", "Bạn không được để trống Mã khách hàng!");
+        $(".dialog-input-code").prop(
+          "title",
+          "Bạn không được để trống Mã khách hàng!"
+        );
       }
-      if(this.$refs.employeeDepartmentId.value == ""){
+      if (this.$refs.employeeDepartmentId.value == "") {
         this.checkEmployeeDepartmentId = false;
-        $(".dialog-input-departmentId").prop("title", "Bạn không được để trống Đơn vị!");
+        $(".dialog-input-departmentId").prop(
+          "title",
+          "Bạn không được để trống Đơn vị!"
+        );
       }
-      if(this.checkEmployeeFullName == true && this.checkEmployeeDepartmentId == true 
-      && this.checkEmployeeCode == true && this.checkPostPutData == true){
+
+      if (
+        this.checkEmployeeFullName == true &&
+        this.checkEmployeeDepartmentId == true &&
+        this.checkEmployeeCode == true &&
+        this.checkPostPutData == true &&
+        this.checkEmployeeEmail == true
+      ) {
         if (this.statusSendData == "add") {
-        // this.employeeSelected.genderId = 1;
-        // Test dữ liệu cứng
-        console.log(this.employeeSelected);
-        axios
-          .post("https://localhost:44308/v1/api/WebApi", this.employeeSelected)
-          .then(() => {
-            alert("Thêm dữ liệu thành công");
-            this.closeDialog();
-            
-          })
-          .catch((err) => {
-            console.log(err.response.data);
-            var error = err.response.data.devMsg;
-            alert(error);
-          });
-      } else {
-        axios
-          .put("https://localhost:44308/v1/api/WebApi", this.employeeSelected)
-          .then(() => {
-            alert("Sửa dữ liệu thành công");
-            this.closeDialog();
-          })
-          .catch((err) => {
-            console.log("Sửa không được");
-            console.log(err.response.data);
-            var error = err.response.data.devMsg;
-            alert(error);
-          });
-      }
+          // this.employeeSelected.genderId = 1;
+          // Test dữ liệu cứng
+
+          console.log(this.employeeSelected);
+          axios
+            .post(
+              "https://localhost:44308/v1/api/WebApi",
+              this.employeeSelected
+            )
+            .then(() => {
+              alert("Thêm dữ liệu thành công");
+              this.closeDialog();
+            })
+            .catch((err) => {
+              console.log(err.response.data);
+              var error = err.response.data.devMsg;
+              alert(error);
+            });
+        } else {
+          axios
+            .put("https://localhost:44308/v1/api/WebApi", this.employeeSelected)
+            .then(() => {
+              alert("Sửa dữ liệu thành công");
+              this.closeDialog();
+            })
+            .catch((err) => {
+              console.log("Sửa không được");
+              console.log(err.response.data);
+              var error = err.response.data.devMsg;
+              alert(error);
+            });
+        }
       }
     },
     // Cập nhật ngày khi thay đổi
-    updateDate(date){
+    updateDate(date) {
       this.employeeSelected.dateOfBirth = date;
     },
     // Check thông tin bắt buộc nhập: employeeCode
-    employeeFullName(){
+    employeeFullName() {
       var check = this.$refs.employeeFullName.value;
       if (check == "") {
         this.checkEmployeeFullName = false;
         $(".dialog-input-name").prop("title", "Bạn không được để trống Tên!");
-        
       } else {
         this.checkEmployeeFullName = true;
       }
-      
     },
     // Check thông tin bắt buộc nhập: departmentId
-    employeeDepartmentId(){
+    employeeDepartmentId() {
       var check = this.$refs.employeeDepartmentId.value;
       this.checkPostPutData = true;
       if (check == "") {
         this.checkEmployeeDepartmentId = false;
-        $(".dialog-input-departmentId").prop("title", "Bạn không được để trống Đơn vị!");
+        $(".dialog-input-departmentId").prop(
+          "title",
+          "Bạn không được để trống Đơn vị!"
+        );
       } else {
         this.checkEmployeeDepartmentId = true;
       }
@@ -391,14 +417,61 @@ export default {
     // Check thông tin bắt buộc nhập: employeeCode
     employeeCode() {
       var check = this.$refs.employeeCode.value;
-      
+
       if (check == "") {
         this.checkEmployeeCode = false;
-        $(".dialog-input-code").prop("title", "Bạn không được để trống Mã khách hàng!");
+        $(".dialog-input-code").prop(
+          "title",
+          "Bạn không được để trống Mã khách hàng!"
+        );
       } else {
         this.checkEmployeeCode = true;
+        var checkCode = this.$refs.employeeCode.value;
+        this.ExistEmployeeCode(checkCode);
       }
+    },
+    // Kiểm tra sự tồn tại của EmployeeCode:
+    ExistEmployeeCode(employeeCode) {
+      axios
+        .get(
+          "https://localhost:44308/v1/api/WebApi/ExistEmployeeCode?employeeCode=" +
+            employeeCode
+        )
+        .then((res) => {
+          this.checkExistEmployeeCode = res.data;
+          if (this.checkExistEmployeeCode == true) {
+            this.checkEmployeeCode = false;
+            $(".dialog-input-code").prop(
+              "title",
+              "Đã tồn tại mã nhân viên này!"
+            );
+          }
+        })
+        .catch((res) => {
+          console.log(res);
+        });
+    },
+    // Cất dữ liệu lên để kiểm tra
+    saveEmployee() {
+      var check = this.$refs.employeeCode.value;
+      this.ExistEmployeeCode(check);
+      this.employeeFullName();
+      this.employeeDepartmentId();
+      this.employeeCode();
 
+    },
+    // Check Email đúng định dạng hay không
+    employeeEmail() {
+      var check = this.$refs.employeeEmail.value;
+      var regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+        check
+      );
+
+      if (check == "" || regex == false) {
+        this.checkEmployeeEmail = false;
+      } else {
+        this.checkEmployeeEmail = true;
+      }
     },
   },
 };

@@ -27,6 +27,8 @@
           <!-- Biểu tượng tìm kiếm -->
           <div class="content-tool-icon" @click="filterEmployee()"></div>
         </div>
+        <!-- Xuất file Excel -->
+        <div class="content-tool-excel" @click="exportFileExcel()"></div>
         <!-- Reload trang -->
         <div class="content-tool-reload" @click="reloadData()"></div>
       </div>
@@ -51,13 +53,12 @@
           <tr
             v-for="employee in employeeGetAll"
             :key="employee.employeeId"
-            @dblclick="editEmployee(employee.employeeId)"
           >
             <td class="content-table-columnsticky-left">
               {{ employee.employeeCode }}
             </td>
             <td>{{ employee.fullName }}</td>
-            <td>{{ employee.genderId }}</td>
+            <td>{{ formatGenderId(employee.genderId) }}</td>
             <td>{{ formatDateOfBirth(employee.dateOfBirth) }}</td>
             <td>{{ employee.identityId }}</td>
             <td>{{ employee.positionId }}</td>
@@ -208,7 +209,6 @@ export default {
       .get("https://localhost:44308/v1/api/WebApi/EmployeeCodeMax")
       .then((res) => {
         this.employeeCodeMax = res.data;
-        alert(this.employeeCodeMax);
       })
       .catch(() => {
       });
@@ -252,6 +252,7 @@ export default {
       this.isShowDialog = false;
       this.employeeSelected = {};
       this.reloadData();
+      this.getEmployeeCodeMax();
     },
 
     // Lọc dữ liệu dựa trên Mã nhân viên, tên hoặc số điện thoại
@@ -282,7 +283,6 @@ export default {
     // Lấy employeeId của bản ghi khi Click vào
     editEmployee(employeeId) {
       this.employeeIdSelected = employeeId;
-      // alert(this.employeeIdSelected);
       this.isShowDialog = true;
       this.statusSendData = "edit";
 
@@ -358,6 +358,22 @@ export default {
       })
       .catch(() => {
       });
+    },
+    // Xuất file Excel
+    exportFileExcel(){
+      alert("Chức năng này đang được updating");
+    },
+    // Format giới tính
+    formatGenderId(genderId){
+      if(genderId == 1){
+        return "Nam";
+      }
+      if(genderId == 0){
+        return "Nữ";
+      }
+      if(genderId == 2){
+        return "Giới tính khác";
+      }
     }
   },
   mounted() {},

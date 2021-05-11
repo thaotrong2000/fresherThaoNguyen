@@ -86,6 +86,17 @@
   background-position: -992px -356px;
   cursor: pointer;
 }
+/* Xuất file Excel */
+.content-tool-excel{
+  width: 24px; 
+  height: 24px;
+  background-image: url("../../assets/img/Sprites.64af8f61.svg");
+  background-repeat: no-repeat;
+  background-position: -704px -200px;
+  cursor: pointer;
+  margin-left: 14px;
+}
+
 
 /* Biểu tượng reload */
 .content-tool-reload {
@@ -96,6 +107,7 @@
   background-position: -423px -200px;
   margin-left: 12px;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 /* Xử lý nơi hiển thị dữ liệu */
@@ -151,12 +163,30 @@ table tbody tr td:last-child{
   background-color: #ffffff;
 }
 .content-table-columnsticky-right button:first-child{
-  margin-left: 10px;
+  margin-left: 30px;
   cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 3px;
 }
 .content-table-columnsticky-right button:last-child{
   margin-left: 10px;
   cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+}
+.content-table-columnsticky-right button:first-child:hover{
+  background-color: #4976d0;
+  color: #ffffff;
+}
+.content-table-columnsticky-right button:last-child:hover{
+  background-color: #ff6666;
+  color: #ffffff;
+}
+
+table thead th:last-child{
+  text-align: center;
 }
 
 .content-data-table thead tr th:first-child {
@@ -242,6 +272,7 @@ table tbody tr td select{
   border-radius: 2px;
   width: 100%;
   display: none;
+  z-index: 7;
 }
 
 .page-selected {
