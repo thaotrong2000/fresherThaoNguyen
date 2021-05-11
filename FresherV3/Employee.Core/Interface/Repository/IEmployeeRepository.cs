@@ -53,5 +53,12 @@ namespace WebApi.Core.Interface.Repository
         /// </returns>
         /// CreatedBy: NTTHAO(9/5/2021)
         public bool CheckDepartmentIdExist(Guid? departmentId);
+
+        /// <summary>
+        /// Lấy mã số nhân viên lớn nhất
+        /// </summary>
+        /// <returns>Trả về mã số nhân viên lớn nhất</returns>
+        /// CreatedBy: NTTHAO(11/5/2021)
+        public string GetCodeMax();
     }
 }

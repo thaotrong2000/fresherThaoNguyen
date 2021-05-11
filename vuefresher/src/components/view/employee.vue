@@ -22,6 +22,7 @@
             type="text"
             class="content-tool-inputsearch"
             placeholder="Tìm theo mã, tên nhân viên"
+            @keydown.enter="keyEnterSearch()"
           />
           <!-- Biểu tượng tìm kiếm -->
           <div class="content-tool-icon" @click="filterEmployee()"></div>
@@ -47,23 +48,41 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="employee in employeeGetAll" :key="employee.employeeId" @dblclick="editEmployee(employee.employeeId)">
-            <td class="content-table-columnsticky-left">{{ employee.employeeCode }}</td>
+          <tr
+            v-for="employee in employeeGetAll"
+            :key="employee.employeeId"
+            @dblclick="editEmployee(employee.employeeId)"
+          >
+            <td class="content-table-columnsticky-left">
+              {{ employee.employeeCode }}
+            </td>
             <td>{{ employee.fullName }}</td>
             <td>{{ employee.genderId }}</td>
             <td>{{ formatDateOfBirth(employee.dateOfBirth) }}</td>
             <td>{{ employee.identityId }}</td>
             <td>{{ employee.positionId }}</td>
-            <td>{{formatDepartment(employee.departmentId)}}</td>
+            <td>{{ formatDepartment(employee.departmentId) }}</td>
             <td>{{ employee.bankId }}</td>
             <td>{{ employee.bankName }}</td>
             <td>{{ employee.bankBranch }}</td>
+            <!-- employee.bankBranch -->
             <td class="content-table-columnsticky-right">
-              <select name="" id="tool" value="" @change="toolData(employee.employeeId)">
-                <option value="" >...</option>
-                <option value="edit" >Sửa</option>
-                <option value="delete" >Xóa</option>
-              </select>
+              <button
+                name=""
+                class="toolId"
+                value=""
+                @click="editEmployee(employee.employeeId)"
+              >
+                Sửa
+              </button>
+              <button
+                name=""
+                class="toolId"
+                value=""
+                @click="deleteEmployee(employee.employeeId,employee.employeeCode)"
+              >
+                Xóa
+              </button>
             </td>
           </tr>
         </tbody>
@@ -139,6 +158,7 @@
       @closeDialog="closeDialog()"
       :employeeSelected="employeeSelected"
       :statusSendData="statusSendData"
+      :employeeCodeMax="employeeCodeMax"
     />
   </div>
 </template>
@@ -164,6 +184,7 @@ export default {
       employeeIdSelected: "", // employeeId của khách hàng được ấn vào chỉnh sửa
       employeeSelected: {}, // Đây là biến khách hàng được chọn, cùng chính là biến khách hàng được thêm
       statusSendData: "add", // Trạng thái thêm mới nhân viên(add) hoặc chỉnh sửa nhân viên(edit)
+      employeeCodeMax: "", // Trả về mã nhân viên lớn nhất hiện tại
     };
   },
   // Sau khi tạo xong sẽ chạy Created
@@ -181,6 +202,16 @@ export default {
       .catch((res) => {
         console.log(res);
       });
+
+      // Lấy về mã nhân viên lớn nhất
+      axios
+      .get("https://localhost:44308/v1/api/WebApi/EmployeeCodeMax")
+      .then((res) => {
+        this.employeeCodeMax = res.data;
+      })
+      .catch(() => {
+      });
+
   },
   methods: {
     addEmployee() {
@@ -294,13 +325,37 @@ export default {
         return "Hà Nội";
       }
     },
-    // Tùy chọn sửa hoặc xóa dữ liệu
-    toolData(employeeId){
-      var statusSelected = $("#tool").val();
-      if(statusSelected == "edit"){
-        this.editEmployee(employeeId);
+    // Xóa dữ liệu
+    deleteEmployee(employeeId, employeeCode) {
+      if (confirm("Bạn có chắc chắn muốn xóa nhân viên "+employeeCode+" không?")) {
+        axios
+          .delete(
+            "https://localhost:44308/v1/api/WebApi?EmployeeId=" + employeeId
+          )
+          .then(() => {
+            alert("Xóa dữ liệu thành công");
+            this.reloadData();
+            this.getEmployeeCodeMax();
+
+          })
+          .catch(() => {
+            alert("Không xóa được dữ liệu");
+          });
       }
-      
+    },
+    keyEnterSearch(){
+      this.filterEmployee();
+    }
+    ,
+    // Lấy employeeCodeMax
+    getEmployeeCodeMax(){
+      axios
+      .get("https://localhost:44308/v1/api/WebApi/EmployeeCodeMax")
+      .then((res) => {
+        this.employeeCodeMax = res.data;
+      })
+      .catch(() => {
+      });
     }
   },
   mounted() {},

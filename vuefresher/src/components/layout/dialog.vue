@@ -279,6 +279,7 @@ export default {
     employeeSelected: {
       type: Object,
     },
+    
   },
   data() {
     return {
@@ -311,6 +312,9 @@ export default {
 
     // Thêm dữ liệu
     postData() {
+      if(this.statusSendData=="edit"){
+        this.checkPostPutData = true;
+      }
       if(this.$refs.employeeFullName.value == ""){
         this.checkEmployeeFullName = false;
          $(".dialog-input-name").prop("title", "Bạn không được để trống Tên!");
@@ -334,10 +338,11 @@ export default {
           .then(() => {
             alert("Thêm dữ liệu thành công");
             this.closeDialog();
+            
           })
-          .catch((res) => {
-            console.log(res.header);
-            alert("Không");
+          .catch((err) => {
+            var error = err.response.data.devMsg;
+            alert(error);
           });
       } else {
         axios
@@ -346,8 +351,10 @@ export default {
             alert("Sửa dữ liệu thành công");
             this.closeDialog();
           })
-          .catch(() => {
+          .catch((err) => {
             console.log("Sửa không được");
+            var error = err.response.data.devMsg;
+            alert(error);
           });
       }
       }
@@ -362,9 +369,11 @@ export default {
       if (check == "") {
         this.checkEmployeeFullName = false;
         $(".dialog-input-name").prop("title", "Bạn không được để trống Tên!");
+        
       } else {
         this.checkEmployeeFullName = true;
       }
+      
     },
     // Check thông tin bắt buộc nhập: departmentId
     employeeDepartmentId(){

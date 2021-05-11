@@ -150,6 +150,15 @@ table tbody tr td:last-child{
   z-index: 4;
   background-color: #ffffff;
 }
+.content-table-columnsticky-right button:first-child{
+  margin-left: 10px;
+  cursor: pointer;
+}
+.content-table-columnsticky-right button:last-child{
+  margin-left: 10px;
+  cursor: pointer;
+}
+
 .content-data-table thead tr th:first-child {
 }
 .content-data-table thead tr th:last-child {

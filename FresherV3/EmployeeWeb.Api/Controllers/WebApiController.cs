@@ -186,5 +186,16 @@ namespace WebApi.Api.Controllers
                 return NoContent();
             }
         }
+
+        /// <summary>
+        /// Trả về mã nhân viên lớn nhất hiện tại
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("EmployeeCodeMax")]
+        public IActionResult GetEmployeeCodeMax()
+        {
+            var employeeCodeMax = _employeeRepository.GetCodeMax();
+            return Ok(employeeCodeMax);
+        }
     }
 }

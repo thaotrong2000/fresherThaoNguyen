@@ -105,5 +105,20 @@ namespace WebApi.Infrastructure.Repository
                 return checkDepartment;
             }
         }
+
+        /// <summary>
+        /// Lấy mã số nhân viên lớn nhất hiện tại
+        /// </summary>
+        /// <returns>Trả về mã số nhân viên lớn nhất</returns>
+        /// CreatedBy: NTTHAO(11/5/2021)
+        public string GetCodeMax()
+        {
+            using (dbConnection = new MySqlConnection(connectString))
+            {
+                var employeeCodeMax = dbConnection.QueryFirst<string>("proc_GetEmployeeCodeMax",
+                    commandType: CommandType.StoredProcedure);
+                return employeeCodeMax;
+            }
+        }
     }
 }
