@@ -208,6 +208,7 @@ export default {
       .get("https://localhost:44308/v1/api/WebApi/EmployeeCodeMax")
       .then((res) => {
         this.employeeCodeMax = res.data;
+        alert(this.employeeCodeMax);
       })
       .catch(() => {
       });
@@ -218,6 +219,7 @@ export default {
       this.isShowDialog = true;
       this.employeeSelected = {};
       this.statusSendData = "add";
+      this.employeeSelected.employeeCode = "ms"+String(this.employeeCodeMax+1);
     },
     // Định dạng ngày tháng
     formatDateOfBirth(birth) {

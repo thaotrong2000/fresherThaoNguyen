@@ -341,6 +341,7 @@ export default {
             
           })
           .catch((err) => {
+            console.log(err.response.data);
             var error = err.response.data.devMsg;
             alert(error);
           });
@@ -353,6 +354,7 @@ export default {
           })
           .catch((err) => {
             console.log("Sửa không được");
+            console.log(err.response.data);
             var error = err.response.data.devMsg;
             alert(error);
           });
@@ -378,6 +380,7 @@ export default {
     // Check thông tin bắt buộc nhập: departmentId
     employeeDepartmentId(){
       var check = this.$refs.employeeDepartmentId.value;
+      this.checkPostPutData = true;
       if (check == "") {
         this.checkEmployeeDepartmentId = false;
         $(".dialog-input-departmentId").prop("title", "Bạn không được để trống Đơn vị!");
@@ -388,7 +391,7 @@ export default {
     // Check thông tin bắt buộc nhập: employeeCode
     employeeCode() {
       var check = this.$refs.employeeCode.value;
-      this.checkPostPutData = true;
+      
       if (check == "") {
         this.checkEmployeeCode = false;
         $(".dialog-input-code").prop("title", "Bạn không được để trống Mã khách hàng!");
