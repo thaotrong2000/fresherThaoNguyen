@@ -42,10 +42,16 @@ namespace EmployeeWeb.Api
         public void ConfigureServices(IServiceCollection services)
         {
             // Configure CORS
-            services.AddCors(c =>
-            {
-                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
-            });
+            //services.AddCors(c =>
+            //{
+            //    c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+            //});
+            services.AddCors(options => options.AddPolicy("MyPolicy", builder =>
+                builder.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                )
+            );
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -108,8 +114,9 @@ namespace EmployeeWeb.Api
 
             app.UseRouting();
 
-            // Sử dụng MyAllowSpecificOrigins
-            app.UseCors(options => options.AllowAnyOrigin());
+            //// Sử dụng MyAllowSpecificOrigins
+            //app.UseCors(options => options.AllowAnyOrigin());
+            app.UseCors("MyPolicy");
 
             app.UseAuthorization();
 

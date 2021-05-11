@@ -27,7 +27,7 @@
           <div class="content-tool-icon" @click="filterEmployee()"></div>
         </div>
         <!-- Reload trang -->
-        <div class="content-tool-reload"></div>
+        <div class="content-tool-reload" @click="reloadData()"></div>
       </div>
       <!-- Bảng hiện thị dữ liệu -->
       <table class="content-table">
@@ -47,18 +47,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="employee in employeeGetAll" :key="employee.employeeId">
+          <tr v-for="employee in employeeGetAll" :key="employee.employeeId" @dblclick="editEmployee(employee.employeeId)">
             <td>{{ employee.employeeCode }}</td>
             <td>{{ employee.fullName }}</td>
             <td>{{ employee.genderId }}</td>
             <td>{{ formatDateOfBirth(employee.dateOfBirth) }}</td>
             <td>{{ employee.identityId }}</td>
             <td>{{ employee.positionId }}</td>
-            <td>{{ employee.departmentId }}</td>
+            <td>{{formatDepartment(employee.departmentId)}}</td>
             <td>{{ employee.bankId }}</td>
             <td>{{ employee.bankName }}</td>
             <td>{{ employee.bankBranch }}</td>
-            <td @click=editEmployee(employee.employeeId)>Updating</td>
+            <td>Updating</td>
           </tr>
         </tbody>
       </table>
@@ -86,7 +86,6 @@
               class="paging-selected-10 page-selected"
               value="10"
               id="selected-10"
-              :class="{ test: demoClass }"
               @click="paging(10)"
             >
               10 bản ghi hiển thị
@@ -129,7 +128,13 @@
         </div>
       </div>
     </div>
-    <Dialog :ishow="isShowDialog" @closeDialog="closeDialog()" />
+    <Dialog
+      :ishow="isShowDialog"
+      @closeDialog="closeDialog()"
+      :employeeSelected="employeeSelected"
+      :statusSendData="statusSendData"
+      
+    />
   </div>
 </template>
 
@@ -146,22 +151,22 @@ export default {
   // Toàn bộ các biến được lưu trữ ở đây
   data() {
     return {
-      employeeGetAll: {},       // Object lưu toàn bộ dữ liệu nhân viên được lấy về
-      employeeGetAllCount: 0,   // Đếm tổng số nhân viên trong Database
-      pageSizeEmployee: 0,      // Số phần tử trên một trang
-      isShowDialog: false,      // cho phép Dialog hiển thị hoặc không
+      employeeGetAll: {}, // Object lưu toàn bộ dữ liệu nhân viên được lấy về
+      employeeGetAllCount: 0, // Đếm tổng số nhân viên trong Database
+      pageSizeEmployee: 0, // Số phần tử trên một trang
+      isShowDialog: false, // cho phép Dialog hiển thị hoặc không
       stringFilterEmployee: "", // biến để lọc dữ liệu theo: mã nhân viên, tên, sđt
       employeeIdSelected: "", // employeeId của khách hàng được ấn vào chỉnh sửa
-      employeeSelected: [] // Đây là biến khách hàng được chọn, cùng chính là biến khách hàng được thêm
+      employeeSelected: {}, // Đây là biến khách hàng được chọn, cùng chính là biến khách hàng được thêm
+      statusSendData: "add", // Trạng thái thêm mới nhân viên(add) hoặc chỉnh sửa nhân viên(edit) 
+      
     };
   },
   // Sau khi tạo xong sẽ chạy Created
   created() {
     // Thực hiện lấy toàn bộ dữ liệu và gán vào biến: employeeGetAll
     axios
-      .get(
-        "https://localhost:44308/v1/api/WebApi"
-      )
+      .get("https://localhost:44308/v1/api/WebApi")
       .then((res) => {
         console.log(res.data);
         // Toàn bộ dữ liệu lấy về - lưu vào biến employeeGetAll
@@ -172,11 +177,12 @@ export default {
       .catch((res) => {
         console.log(res);
       });
-
   },
   methods: {
     addEmployee() {
       this.isShowDialog = true;
+      this.employeeSelected = {};
+      this.statusSendData = "add";
     },
     // Định dạng ngày tháng
     formatDateOfBirth(birth) {
@@ -207,17 +213,24 @@ export default {
     },
     closeDialog() {
       this.isShowDialog = false;
+      this.employeeSelected = {};
+      this.reloadData();
     },
 
     // Lọc dữ liệu dựa trên Mã nhân viên, tên hoặc số điện thoại
     filterEmployee() {
       // Biến lưu dữ liệu từ thao tác nhập vào ô Input của người dùng
       var filterData = $(".content-tool-inputsearch").val();
-      this.stringFilterEmployee = filterData;      
+      this.stringFilterEmployee = filterData;
       // Thực hiện lọc dữ liệu từ API với các biến đã được chọn
       axios
         .get(
-          "https://localhost:44308/v1/api/WebApi/Filter?employeeCode="+filterData+"&employeeFullName="+filterData+"&employeePhoneNumber="+filterData
+          "https://localhost:44308/v1/api/WebApi/Filter?employeeCode=" +
+            filterData +
+            "&employeeFullName=" +
+            filterData +
+            "&employeePhoneNumber=" +
+            filterData
         )
         .then((res) => {
           console.log(res.data);
@@ -227,15 +240,55 @@ export default {
         .catch((res) => {
           console.log(res);
         });
-
-      
     },
 
     // Lấy employeeId của bản ghi khi Click vào
-    editEmployee(employeeId){
+    editEmployee(employeeId) {
       this.employeeIdSelected = employeeId;
       // alert(this.employeeIdSelected);
       this.isShowDialog = true;
+      this.statusSendData = "edit";
+
+      // Lấy dữ liệu theo employeeId
+      axios
+        .get("https://localhost:44308/v1/api/WebApi/" + this.employeeIdSelected)
+        .then((res) => {
+          // Dữ liệu nhân viên lấy về theo employeeId
+          this.employeeSelected = res.data;
+          console.log(this.employeeSelected);
+        })
+        .catch((res) => {
+          console.log(res);
+        });
+    },
+
+    // Reload lại dữ liệu
+    reloadData() {
+      // Thực hiện lấy toàn bộ dữ liệu và gán vào biến: employeeGetAll
+      axios
+        .get("https://localhost:44308/v1/api/WebApi")
+        .then((res) => {
+          console.log(res.data);
+          // Toàn bộ dữ liệu lấy về - lưu vào biến employeeGetAll
+          this.employeeGetAll = res.data;
+          // Tổng số bản ghi lấy về - lưu vào biến employeeGetAllCount
+          this.employeeGetAllCount = res.data.length;
+        })
+        .catch((res) => {
+          console.log(res);
+        });
+    },
+    // Format Department
+    formatDepartment(department){
+      if(department == "2796d66f-b008-11eb-8a1f-00163e047e87"){
+        return "Phú Thọ";
+      }
+      if(department == "2796d66f-b008-11eb-8a1f-00163e047e88"){
+        return "TP HCM";
+      }
+      if(department == "2796d66f-b008-11eb-8a1f-00163e047e89"){
+        return "Hà Nội";
+      }
     }
   },
   mounted() {},
