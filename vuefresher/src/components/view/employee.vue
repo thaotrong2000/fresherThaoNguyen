@@ -33,7 +33,7 @@
       <table class="content-table">
         <thead>
           <tr>
-            <th>Mã nhân viên</th>
+            <th class="content-table-columnsticky-left">Mã nhân viên</th>
             <th>Tên nhân viên</th>
             <th>Giới tính</th>
             <th>Ngày sinh</th>
@@ -43,12 +43,12 @@
             <th>Số tài khoản</th>
             <th>Tên ngân hàng</th>
             <th>Chi nhánh ngân hàng</th>
-            <th>Chức năng</th>
+            <th class="content-table-columnsticky-right">Chức năng</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="employee in employeeGetAll" :key="employee.employeeId" @dblclick="editEmployee(employee.employeeId)">
-            <td>{{ employee.employeeCode }}</td>
+            <td class="content-table-columnsticky-left">{{ employee.employeeCode }}</td>
             <td>{{ employee.fullName }}</td>
             <td>{{ employee.genderId }}</td>
             <td>{{ formatDateOfBirth(employee.dateOfBirth) }}</td>
@@ -58,7 +58,13 @@
             <td>{{ employee.bankId }}</td>
             <td>{{ employee.bankName }}</td>
             <td>{{ employee.bankBranch }}</td>
-            <td>Updating</td>
+            <td class="content-table-columnsticky-right">
+              <select name="" id="tool" value="" @change="toolData(employee.employeeId)">
+                <option value="" >...</option>
+                <option value="edit" >Sửa</option>
+                <option value="delete" >Xóa</option>
+              </select>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -133,7 +139,6 @@
       @closeDialog="closeDialog()"
       :employeeSelected="employeeSelected"
       :statusSendData="statusSendData"
-      
     />
   </div>
 </template>
@@ -158,8 +163,7 @@ export default {
       stringFilterEmployee: "", // biến để lọc dữ liệu theo: mã nhân viên, tên, sđt
       employeeIdSelected: "", // employeeId của khách hàng được ấn vào chỉnh sửa
       employeeSelected: {}, // Đây là biến khách hàng được chọn, cùng chính là biến khách hàng được thêm
-      statusSendData: "add", // Trạng thái thêm mới nhân viên(add) hoặc chỉnh sửa nhân viên(edit) 
-      
+      statusSendData: "add", // Trạng thái thêm mới nhân viên(add) hoặc chỉnh sửa nhân viên(edit)
     };
   },
   // Sau khi tạo xong sẽ chạy Created
@@ -279,16 +283,24 @@ export default {
         });
     },
     // Format Department
-    formatDepartment(department){
-      if(department == "2796d66f-b008-11eb-8a1f-00163e047e87"){
+    formatDepartment(department) {
+      if (department == "2796d66f-b008-11eb-8a1f-00163e047e87") {
         return "Phú Thọ";
       }
-      if(department == "2796d66f-b008-11eb-8a1f-00163e047e88"){
+      if (department == "2796d66f-b008-11eb-8a1f-00163e047e88") {
         return "TP HCM";
       }
-      if(department == "2796d66f-b008-11eb-8a1f-00163e047e89"){
+      if (department == "2796d66f-b008-11eb-8a1f-00163e047e89") {
         return "Hà Nội";
       }
+    },
+    // Tùy chọn sửa hoặc xóa dữ liệu
+    toolData(employeeId){
+      var statusSelected = $("#tool").val();
+      if(statusSelected == "edit"){
+        this.editEmployee(employeeId);
+      }
+      
     }
   },
   mounted() {},

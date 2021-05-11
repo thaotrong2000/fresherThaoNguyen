@@ -1,5 +1,6 @@
 #dialog {
   display: block;
+  z-index: 7;
 }
 
 /* Làm mờ phần nội dung chính */

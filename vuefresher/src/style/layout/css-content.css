@@ -45,11 +45,11 @@
   flex: 1;
   max-width: 100%;
   background-color: #ffffff;
-  padding: 0 15px 10px 10px;
+  padding: 0 0px 10px 0px;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  overflow-x:auto;
+  overflow-x: auto;
 }
 
 /* Công cụ tìm kiếm dữ liệu */
@@ -112,20 +112,58 @@
   position: sticky;
   top: -1px;
   background-color: #f4f5f8;
-  
 }
 /* Tạo border cho các ô dữ liệu */
-.content-data-table th,td{
-    border: 1px solid #ccc;
-    height: 42px;
-    min-width: 150px;
-    text-align: left;
-    padding-left: 10px;
+.content-data-table th,
+td {
+  border: 1px solid #ccc;
+  height: 42px;
+  min-width: 150px;
+  text-align: left;
+  padding-left: 10px;
 }
 
 /* Dính những ô quan trọng vào màn hình */
-.content-table-columnsticky{
+.content-table-columnsticky-left {
+  left: -1px;
+  z-index: 4;
+  background-color: #ffffff;
 }
+table thead tr th:first-child{
+  z-index: 7;
+}
+table thead tr th:last-child{
+  z-index: 7;
+}
+table tbody tr td:first-child{
+  position:sticky;
+  left: -1px;
+}
+table tbody tr td:last-child{
+  position:sticky;
+  right: 0px;
+}
+
+
+.content-table-columnsticky-right {
+  right: 0px;
+  z-index: 4;
+  background-color: #ffffff;
+}
+.content-data-table thead tr th:first-child {
+}
+.content-data-table thead tr th:last-child {
+}
+.content-data-table tbody tr th:last-child select {
+  outline: none;
+  border: none;
+}
+table tbody tr td select{
+  margin-left: 10px;
+  width: 50px;
+  outline: none;
+}
+
 
 /* Thử cách mới */
 
@@ -139,31 +177,29 @@
 }
 
 /* Tổng số bản ghi Nhân Viên */
-.content-all-employee{
-  
+.content-all-employee {
 }
 
-.content-all-employee .all-employee{
+.content-all-employee .all-employee {
   font-family: NotoSans-Bold;
   font-size: 14px;
 }
 
 /* Phân trang dữ liệu */
 
-.content-paging-number{
+.content-paging-number {
   display: flex;
-
 }
 
 /* Chọn số bản ghi muốn hiển thị */
-.paging-number-employee{
+.paging-number-employee {
   position: relative;
   width: 200px;
   height: 32px;
 }
 
 /* Nơi hiển thị số dữ liệu muốn hiển thị */
-.page-select-default{
+.page-select-default {
   display: flex;
   width: 100%;
   align-items: center;
@@ -172,25 +208,25 @@
 }
 
 /* Sửa mục text lựa chọn  */
-.page-select-default .page-select-text{
+.page-select-default .page-select-text {
   padding-right: 10px;
   flex: 1;
 }
 /* Sửa mục icon lựa chọn */
-.page-select-default .page-select-icon{
-    width: 30px;
-    height: 32px;
-    background-image: url("../../assets/img/Sprites.64af8f61.svg");
-    background-repeat: no-repeat;
-    background-position: -552px -351px;
+.page-select-default .page-select-icon {
+  width: 30px;
+  height: 32px;
+  background-image: url("../../assets/img/Sprites.64af8f61.svg");
+  background-repeat: no-repeat;
+  background-position: -552px -351px;
 }
 /* Hover vào icon sẽ đổi toggle */
-.page-select-default .page-select-icon:hover{
+.page-select-default .page-select-icon:hover {
   background-color: #cccccc;
 }
 
 /* Các mục lựa chọn sẽ có vị trí tương đối với paging-number-employee */
-.paging-selected-employee{
+.paging-selected-employee {
   position: absolute;
   bottom: 40px;
   border: 1px solid #cccccc;
@@ -199,8 +235,7 @@
   display: none;
 }
 
-
-.page-selected{
+.page-selected {
   width: 100%;
   height: 32px;
   padding-left: 10px;
@@ -210,23 +245,22 @@
 }
 
 /* Hover: Chuyển màu chữ khi hover vào 1 lựa chọn số bản ghi hiển thị */
-.page-selected:hover{
+.page-selected:hover {
   color: #2ca01c;
   background-color: #cccccc;
 }
 
 /* Nơi lựa chọn cách dữ liệu muốn hiển thị */
-.paging-number-display{
+.paging-number-display {
   display: flex;
   align-items: center;
 }
 
 /* Chọn số trang */
-.paging-display-pre{
+.paging-display-pre {
   padding: 0 10px;
 }
 
-.paging-dipslay-next{
+.paging-dipslay-next {
   padding: 0 10px;
 }
-
