@@ -1,8 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using WebApi.Core.Entities;
 using WebApi.Core.Interface.Repository;
@@ -213,6 +217,32 @@ namespace WebApi.Api.Controllers
         {
             var checkExistEmployeeCode = _employeeRepository.CheckEmployeeCodeExist(employeeCode);
             return Ok(checkExistEmployeeCode);
+        }
+
+        /// <summary>
+        /// Xuất file Excel
+        /// </summary>
+        /// <param name="cancellationToken">Trả về file Excel</param>
+        /// <returns></returns>
+        [HttpGet("DataExcel")]
+        public async Task<IActionResult> ExportExcel(CancellationToken cancellationToken)
+        {
+            // query data from database
+            await Task.Yield();
+            var list = _employeeRepository.getAll();
+            var stream = new MemoryStream();
+
+            using (var package = new ExcelPackage(stream))
+            {
+                var workSheet = package.Workbook.Worksheets.Add("Sheet1");
+                workSheet.Cells.LoadFromCollection(list, true);
+                package.Save();
+            }
+            stream.Position = 0;
+            string excelName = $"Employee.xlsx";
+
+            //return File(stream, "application/octet-stream", excelName);
+            return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", excelName);
         }
     }
 }

@@ -126,6 +126,7 @@
                   name="gender"
                   value="1"
                   :checked="employeeSelected.genderId == 1"
+                  v-model="employeeSelected.genderId"
                 />
                 Nam<br />
                 <input
@@ -133,6 +134,7 @@
                   name="gender"
                   value="0"
                   :checked="employeeSelected.genderId == 0"
+                  v-model="employeeSelected.genderId"
                 />
                 Nữ<br />
                 <input
@@ -140,6 +142,7 @@
                   name="gender"
                   value="2"
                   :checked="employeeSelected.genderId == 2"
+                  v-model="employeeSelected.genderId"
                 />
                 Khác
               </form>

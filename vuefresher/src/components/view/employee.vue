@@ -361,7 +361,7 @@ export default {
     },
     // Xuất file Excel
     exportFileExcel(){
-      alert("Chức năng này đang được updating");
+      window.open("https://localhost:44308/v1/api/WebApi/DataExcel");
     },
     // Format giới tính
     formatGenderId(genderId){

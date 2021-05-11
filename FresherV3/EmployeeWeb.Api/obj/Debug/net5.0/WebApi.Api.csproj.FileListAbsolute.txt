@@ -127,3 +127,6 @@ E:\fresherThaoNguyen\FresherV3\EmployeeWeb.Api\obj\Debug\net5.0\WebApi.Api.dll
 E:\fresherThaoNguyen\FresherV3\EmployeeWeb.Api\obj\Debug\net5.0\ref\WebApi.Api.dll
 E:\fresherThaoNguyen\FresherV3\EmployeeWeb.Api\obj\Debug\net5.0\WebApi.Api.pdb
 E:\fresherThaoNguyen\FresherV3\EmployeeWeb.Api\obj\Debug\net5.0\WebApi.Api.genruntimeconfig.cache
+E:\fresherThaoNguyen\FresherV3\EmployeeWeb.Api\bin\Debug\net5.0\EPPlus.dll
+E:\fresherThaoNguyen\FresherV3\EmployeeWeb.Api\bin\Debug\net5.0\Microsoft.IO.RecyclableMemoryStream.dll
+E:\fresherThaoNguyen\FresherV3\EmployeeWeb.Api\bin\Debug\net5.0\System.Xml.XPath.XmlDocument.dll
