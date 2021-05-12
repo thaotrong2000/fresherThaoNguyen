@@ -50,10 +50,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr
-            v-for="employee in employeeGetAll"
-            :key="employee.employeeId"
-          >
+          <tr v-for="employee in employeeGetAll" :key="employee.employeeId">
             <td class="content-table-columnsticky-left">
               {{ employee.employeeCode }}
             </td>
@@ -68,7 +65,7 @@
             <td>{{ employee.bankBranch }}</td>
             <!-- employee.bankBranch -->
             <td class="content-table-columnsticky-right">
-              <button
+              <!-- <button
                 name=""
                 class="toolId"
                 value=""
@@ -80,10 +77,17 @@
                 name=""
                 class="toolId"
                 value=""
-                @click="deleteEmployee(employee.employeeId,employee.employeeCode)"
+                @click="
+                  deleteEmployee(employee.employeeId, employee.employeeCode)
+                "
               >
                 Xóa
-              </button>
+              </button> -->
+              <select name="" class="editData" v-bind:id="employee.employeeId" @change="changeData(employee.employeeId,employee.employeeCode)">
+                <option value="">...</option>
+                <option value="edit">Sửa</option>
+                <option value="delete">Xóa</option>
+              </select>
             </td>
           </tr>
         </tbody>
@@ -160,6 +164,7 @@
       :employeeSelected="employeeSelected"
       :statusSendData="statusSendData"
       :employeeCodeMax="employeeCodeMax"
+      :inputFocus="inputFocus"
     />
   </div>
 </template>
@@ -186,6 +191,8 @@ export default {
       employeeSelected: {}, // Đây là biến khách hàng được chọn, cùng chính là biến khách hàng được thêm
       statusSendData: "add", // Trạng thái thêm mới nhân viên(add) hoặc chỉnh sửa nhân viên(edit)
       employeeCodeMax: "", // Trả về mã nhân viên lớn nhất hiện tại
+      inputFocus: false, // Kiểm tra sự Focus
+
     };
   },
   // Sau khi tạo xong sẽ chạy Created
@@ -204,22 +211,22 @@ export default {
         console.log(res);
       });
 
-      // Lấy về mã nhân viên lớn nhất
-      axios
+    // Lấy về mã nhân viên lớn nhất
+    axios
       .get("https://localhost:44308/v1/api/WebApi/EmployeeCodeMax")
       .then((res) => {
         this.employeeCodeMax = res.data;
       })
-      .catch(() => {
-      });
-
+      .catch(() => {});
   },
   methods: {
     addEmployee() {
       this.isShowDialog = true;
       this.employeeSelected = {};
       this.statusSendData = "add";
-      this.employeeSelected.employeeCode = "ms"+String(this.employeeCodeMax+1);
+      this.employeeSelected.employeeCode =
+        "ms" + String(this.employeeCodeMax + 1);
+      this.inputFocus = true;
     },
     // Định dạng ngày tháng
     formatDateOfBirth(birth) {
@@ -253,6 +260,7 @@ export default {
       this.employeeSelected = {};
       this.reloadData();
       this.getEmployeeCodeMax();
+      this.inputFocus = false;
     },
 
     // Lọc dữ liệu dựa trên Mã nhân viên, tên hoặc số điện thoại
@@ -285,6 +293,7 @@ export default {
       this.employeeIdSelected = employeeId;
       this.isShowDialog = true;
       this.statusSendData = "edit";
+      this.inputFocus = true;
 
       // Lấy dữ liệu theo employeeId
       axios
@@ -329,7 +338,11 @@ export default {
     },
     // Xóa dữ liệu
     deleteEmployee(employeeId, employeeCode) {
-      if (confirm("Bạn có chắc chắn muốn xóa nhân viên "+employeeCode+" không?")) {
+      if (
+        confirm(
+          "Bạn có chắc chắn muốn xóa nhân viên " + employeeCode + " không?"
+        )
+      ) {
         axios
           .delete(
             "https://localhost:44308/v1/api/WebApi?EmployeeId=" + employeeId
@@ -338,42 +351,53 @@ export default {
             alert("Xóa dữ liệu thành công");
             this.reloadData();
             this.getEmployeeCodeMax();
-
           })
           .catch(() => {
             alert("Không xóa được dữ liệu");
           });
       }
     },
-    keyEnterSearch(){
+    keyEnterSearch() {
       this.filterEmployee();
-    }
-    ,
+    },
     // Lấy employeeCodeMax
-    getEmployeeCodeMax(){
+    getEmployeeCodeMax() {
       axios
-      .get("https://localhost:44308/v1/api/WebApi/EmployeeCodeMax")
-      .then((res) => {
-        this.employeeCodeMax = res.data;
-      })
-      .catch(() => {
-      });
+        .get("https://localhost:44308/v1/api/WebApi/EmployeeCodeMax")
+        .then((res) => {
+          this.employeeCodeMax = res.data;
+        })
+        .catch(() => {});
     },
     // Xuất file Excel
-    exportFileExcel(){
+    exportFileExcel() {
       window.open("https://localhost:44308/v1/api/WebApi/DataExcel");
     },
     // Format giới tính
-    formatGenderId(genderId){
-      if(genderId == 1){
+    formatGenderId(genderId) {
+      if (genderId == 1) {
         return "Nam";
       }
-      if(genderId == 0){
+      if (genderId == 0) {
         return "Nữ";
       }
-      if(genderId == 2){
+      if (genderId == 2) {
         return "Giới tính khác";
       }
+    },
+    // Khi thay đổi dữ liệu
+    editDeleteData() {},
+    // Khi ấn Edit hoặc Delete
+    changeData(employeeId,employeeCode){
+      this.employeeIdSelected = employeeId; 
+      var valueEdit = $("#"+this.employeeIdSelected).val();
+      if(valueEdit == "edit"){
+        this.editEmployee(employeeId);
+      }
+      if(valueEdit == "delete"){
+        this.deleteEmployee(employeeId,employeeCode);
+      }
+      // alert(this.employeeIdSelected);
     }
   },
   mounted() {},

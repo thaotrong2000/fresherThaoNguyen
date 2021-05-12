@@ -291,6 +291,10 @@ export default {
     employeeSelected: {
       type: Object,
     },
+    inputFocus: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -477,6 +481,18 @@ export default {
       }
     },
   },
+  created(){
+    
+  },
+  watch:{
+    inputFocus() {
+      if (this.inputFocus == true) {
+        this.checkEmployeeCode = true;
+        this.$nextTick(() => this.$refs.employeeCode.focus());
+        console.log(this.employeeCodeArray);
+      }
+    },
+  }
 };
 </script>
 
